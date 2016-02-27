@@ -1,0 +1,2 @@
+[11-Nov-2015 15:43:34 America/Sao_Paulo] PHP Warning:  imagejpeg(): gd-jpeg: JPEG library reports unrecoverable error:  in /home/wwwinstitutosupe/public_html/admin/fixamarca/m2brimagem.class.php on line 584
+[11-Nov-2015 15:43:47 America/Sao_Paulo] PHP Warning:  imagejpeg(): gd-jpeg: JPEG library reports unrecoverable error:  in /home/wwwinstitutosupe/public_html/admin/fixamarca/m2brimagem.class.php on line 584

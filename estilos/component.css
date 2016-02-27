@@ -1,0 +1,126 @@
+.container {
+    min-height: 308px;
+}
+
+.cbp-qtrotator {
+	position: relative;
+	max-width: 520px;
+	width: 100%;
+	
+}
+
+.cbp-qtrotator .cbp-qtcontent {
+	position: absolute;
+	min-height: 100px;
+	border-top: 6px solid #ECF3F9;
+	aborder-bottom: 6px solid #f4f4f4;
+	padding: 2em 0.5%;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+	width: 99%;
+}
+
+.no-js .cbp-qtrotator .cbp-qtcontent {
+	border-bottom: none;
+}
+
+.cbp-qtrotator .cbp-qtcontent.cbp-qtcurrent,
+.no-js .cbp-qtrotator .cbp-qtcontent {
+	position: relative; 
+	z-index: 100;
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.cbp-qtrotator .cbp-qtcontent:before,
+.cbp-qtrotator .cbp-qtcontent:after {
+	content: " ";
+	display: table;
+}
+
+.cbp-qtrotator .cbp-qtcontent:after {
+	clear: both;
+}
+
+.cbp-qtprogress {
+	position: absolute;
+	background: #47a3da url('../imgs/progress.jpg') repeat-x;
+	height: 6px;
+	width: 0%;
+	top: 0;
+	z-index: 1000;
+}
+
+.cbp-qtrotator blockquote {
+	margin: 0;
+	padding: 0;
+}
+
+.cbp-qtrotator blockquote p {
+	font-size: 1.9em;
+	color: #666666;
+        text-align: justify;
+        font-style: italic;
+}
+
+.cbp-qtrotator blockquote footer {
+	font-size: 2em;
+        color: #666666;
+        font-weight: bold;
+        margin-top:1em;
+}
+
+.cbp-qtrotator blockquote footer:before {
+	content: '― ';
+}
+
+.cbp-qtrotator .cbp-qtcontent img {
+	float: right;
+	margin-left: 3em;
+}
+
+/* Example for media query */
+@media screen and (max-width: 30.6em) { 
+
+	.cbp-qtrotator {
+		font-size: 90%;
+	}
+
+	.cbp-qtrotator img {
+		width: 80px;
+	}
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 685px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 569px) and (max-width: 600px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 481px) and (max-width: 568px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 401px) and (max-width: 480px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 381px) and (max-width: 400px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 321px) and (max-width: 380px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 241px) and (max-width: 320px) {
+    .container{min-height:100px; height: auto;}
+}
+
+@media screen and (min-width: 1px) and (max-width: 240px) {
+    .container{min-height:100px; height: auto;}
+}

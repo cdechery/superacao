@@ -1,0 +1,112 @@
+* {
+  margin:0px;
+  padding:0px;
+  font-family:Arial, sans-serif;
+}
+
+body {
+  font-size: 62.5%;
+}
+
+img {
+  border:none;
+  max-width: 100%;
+}
+
+.finaliza {
+  display:block;
+  clear:both;
+  font-size:0px;
+  height:1px;
+  width:100%;
+}
+
+::-moz-selection{
+background:#FF6600;
+color:#fff;
+
+}
+::selection {
+background:#FF6600;
+color:#fff;
+}
+
+.wrap {
+    display:block;
+    width: 100%;
+    margin:0 auto;
+}
+
+header {
+    padding-top:5%;
+}
+
+header h1 {
+    text-align: center;
+}
+
+footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+
+footer h1 {
+    font-size:1.5em;
+    color:#333;
+    margin-bottom:0.3em;
+    margin-left:4%;
+}
+
+footer p {
+    font-size:1.4em;
+    color:#666;
+    margin-bottom:0.3em;
+    margin-left:4%;
+}
+
+#sitesja {
+    display:block;
+    position:fixed;
+    bottom:0;
+    right:0;
+}
+
+a:hover {
+    opacity:0.6;
+}
+ 
+    /* CSS para monitores com menos de 650px de largura */
+    @media screen and (max-width: 650px) {
+        footer {position:relative;}
+        footer h1 {text-align: center; margin:0.8em 0;}
+        footer p {text-align: center;}
+        #sitesja {display:block; position: relative; margin-right:0; text-align: center; margin-bottom:1em;}
+        
+    }
+    
+    
+    /* CSS para monitores com menos de 480px de largura */
+    @media screen and (max-width: 480px) {
+       footer {position:relative;}
+        footer h1 {text-align: center; margin:0.8em 0;}
+        footer p {text-align: center;}
+        #sitesja {display:block; position: relative; margin-right:0; text-align: center; margin-bottom:1em;}
+    }
+    
+    /* CSS para monitores com menos de 320px de largura */
+    @media screen and (max-width: 320px) {
+       footer {position:relative;}
+        footer h1 {text-align: center; margin:0.8em 0;}
+        footer p {text-align: center;}
+        #sitesja {display:block; position: relative; margin-right:0; text-align: center; margin-bottom:1em;}
+    }
+    
+    
+    /* CSS para monitores com menos de 240px de largura */
+    @media screen and (max-width: 240px) {
+       footer {position:relative;}
+        footer h1 {text-align: center; margin:0.8em 0;}
+        footer p {text-align: center;}
+        #sitesja {display:block; position: relative; margin-right:0; text-align: center; margin-bottom:1em;}
+    }

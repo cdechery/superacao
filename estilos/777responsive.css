@@ -1,0 +1,1172 @@
+@media screen and (min-width: 1281px) and (max-width: 5000px) {
+    section.centralatendimento h1 {margin-top:3em;}
+    .maps iframe {height:463px;}
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1200px) {
+    .grid-separacao {width:4.6%;}
+    .maps iframe {height:463px;}
+    .formulario {width:80%;}
+    .conteudointerno blockquote span.depoalign {width:70%;}
+    
+}
+
+
+/* 1080 */
+@media screen and (min-width: 1025px) and (max-width: 1080px) {
+    
+     nav ul li a {padding-left:0.7em; padding-right:0.7em;}
+    .resumos h1 {margin-top: 0.8em;}
+    .grid3 {min-height:240px; height:100%;}
+    .fundoVerde {padding:5em 0;}
+    .formulario {width:80%;}
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: right;}
+    .aplicacoes_b p.link-aplicacoes {text-align: center;}
+    .aplicacoes_a {width: 44%; margin-right: 4%;}
+    .aplicacoes_b {width: 50%; border-left: 1px solid #B3CCE3; padding-bottom: 5em;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:4.6%;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+    .maps iframe {height:463px;}
+    
+    .conteudointerno blockquote span.depoalign {width:65%;}
+}
+
+/* 1024 */
+@media screen and (min-width: 961px) and (max-width: 1024px) {
+     nav ul li a {padding-left:0.4em; padding-right:0.4em;}
+     .resumos h1 {margin-top: 0;}
+     .grid3 {min-height:240px; height:100%;}
+     .fundoVerde {padding:5em 0;}
+     .formulario {width:100%;}
+     
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: right;}
+    .aplicacoes_b p.link-aplicacoes {text-align: center;}
+    .aplicacoes_a {width: 44%; margin-right: 4%;}
+    .aplicacoes_b {width: 50%; border-left: 1px solid #B3CCE3; padding-bottom: 6.5em;}
+    .aplicacoes_b iframe.video_youtube {width:410px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:4%;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+    .maps iframe {height:463px;}
+    
+    .conteudointerno blockquote span.depoalign {width:68%;}
+}
+
+/* 960 */
+@media screen and (min-width: 901px) and (max-width: 960px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:block; width:100%; float:none; text-align:center; padding:0; margin:0;} /* deverei apagar essa linha */
+   
+    nav {display:block; width:100%; clear:both; text-align: center; float:none;}
+    nav ul li a {padding:0.5em 0.5em; margin-top:0.5em; border-radius: 7px 7px 0 0;}
+    nav ul li a:hover, nav ul li a.ativado {padding:0.5em 0.5em;}
+    nav ul li a.home, nav ul li a.icoface {padding:0.5em 0.5em;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover {padding:0.5em 0.5em;}
+    section.interna {margin-top:0em;}
+    
+    .resumos h1 {margin-top: 0;}
+    
+    .grid3 {min-height:250px; height:100%;}
+    .sep_grid3 {width:3.8%;}
+    .fundoVerde {padding:4em 0;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: right;}
+    .aplicacoes_b p.link-aplicacoes {text-align: center;}
+    .aplicacoes_a {width: 44%; margin-right: 4%;}
+    .aplicacoes_b {width: 50%; border-left: 1px solid #B3CCE3; padding-bottom: 8em;}
+    .aplicacoes_b iframe.video_youtube {width:380px; height:264px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:3.8%;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+   
+    
+    
+    .newsnoticias img {float:none;}
+    
+    #toTop {display: none;}
+    
+    .maps iframe {height:463px;}
+    
+    .grids5 {width:23%;}
+    
+    .conteudointerno blockquote span.depoalign {width:65%;}
+    
+}
+
+
+/* 900 */
+@media screen and (min-width: 801px) and (max-width: 900px) {
+     body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:block; width:100%; float:none; text-align:center; padding:0; margin:0;} /* deverei apagar essa linha */
+   
+    nav {display:block; width:100%; clear:both; text-align: center; float:none;}
+    nav ul li a {padding:0.5em 0.3em; margin-top:0.5em; border-radius: 7px 7px 0 0;}
+    nav ul li a:hover, nav ul li a.ativado {padding:0.5em 0.3em;}
+    nav ul li a.home, nav ul li a.icoface {padding:0.5em 0.3em;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover {padding:0.5em 0.3em;}
+    
+    section.interna {margin-top:0em;}
+    
+    .resumos h1 {margin-top: 0;}
+    .grid3 {min-height:260px; height:100%;}
+    .sep_grid3 {width:3.5%;}
+    .fundoVerde {padding:4em 0;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: right;}
+    .aplicacoes_b p.link-aplicacoes {text-align: center;}
+    .aplicacoes_a {width: 44%; margin-right: 4%;}
+    .aplicacoes_b {width: 50%; border-left: 1px solid #B3CCE3; padding-bottom: 8em;}
+    .aplicacoes_b iframe.video_youtube {width:350px; height:250px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:3.8%;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+   
+    .newsnoticias img {float:none;}
+    #toTop {display: none;}
+    
+    .maps iframe {height:350px;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:23%;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+}
+
+/* 800 */
+@media screen and (min-width: 769px) and (max-width: 800px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:none; text-align:left; padding-bottom:0em;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:none; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado  {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block;}
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:26%; width:70%; position:absolute; top:5.6em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .resumos h1 {margin-top: 0;}
+    .grid3 {min-height:290px; height:100%;}
+    .sep_grid3 {width:3.5%;}
+    .fundoVerde {padding:4em 0;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: right;}
+    .aplicacoes_b p.link-aplicacoes {text-align: center;}
+    .aplicacoes_a {width: 44%; margin-right: 4%;}
+    .aplicacoes_b {width: 50%; border-left: 1px solid #B3CCE3; padding-bottom: 8em;}
+    .aplicacoes_b iframe.video_youtube {width:340px; height:240px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:3.8%;}
+    
+    .galeriafull{width:100%; max-width: 480px; text-align: center;  display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; display: inline-block;}
+    .galeriafull p {text-align: center;}
+    
+    
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+    
+    
+    .newsnoticias img {float:none;}
+    
+    #toTop {display: none;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .maps iframe {height:325px;}
+    
+    .grids5 {width:31%;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+}
+
+
+/* 768 */
+@media screen and (min-width: 686px) and (max-width: 768px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:28%; width:69%; position:absolute; top:5.6em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+  
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 200px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0;}
+    .resumos h1.tit {background-position: center center; padding-left:0px; text-align: center;}
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {width:3.8%;}
+    
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3.5em 0;}
+    
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: left;}
+    .aplicacoes_b p.video_home {display:inline-block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:inline-block; vertical-align: top; text-align: right; margin-top:2.5em; margin-left:2.2em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:400px; height:264px;}
+    
+    
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    
+    #toTop {display: none;}   
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .maps iframe {height:325px;}
+    
+    .grids5 {width:31%;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+    
+}
+
+/* 685 */
+@media screen and (min-width: 601px) and (max-width: 685px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0;  border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block;  margin-left:32%; width:65%; position:absolute; top:5.6em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 200px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:1em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3.5em 0;}
+    
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: left;}
+    .aplicacoes_b p.video_home {display:inline-block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:inline-block; vertical-align: top; width:22%; text-align: right; margin-top:2.5em; margin-left:1.5em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:350px; height:264px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:3em;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    #toTop {display: none;}
+    
+    .grids5 {width:31%;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+    
+    
+}
+
+/* 600 */
+@media screen and (min-width: 569px) and (max-width: 600px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:33%; width:64%; position:absolute; top:5.6em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 200px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:1em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3.5em 0;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: left;}
+    .aplicacoes_b p.video_home {display:inline-block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:inline-block; vertical-align: top; width:22%; text-align: right; margin-top:2.5em; margin-left:0.5em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:300px; height:230px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:3em;}
+    
+  
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .grids5 {width:48%;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+   
+}
+
+
+/* 568 */
+@media screen and (min-width: 481px) and (max-width: 568px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em;}
+    .ecommerceuser {display:inline-block;}
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:39%; width:56%; position:absolute; top:5.6em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 200px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:1em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3.5em 0;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0.5em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:2em;}
+    .aplicacoes_b p {text-align: left;}
+    .aplicacoes_b p.video_home {display:inline-block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:inline-block; vertical-align: top; width:20%; text-align: right; margin-top:2.5em; margin-left:0.5em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:300px; height:220px;}
+    .conteudointerno iframe {width:400px; height: 280px;}
+    
+    .resumos h1 {padding-top:2em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:3em;}
+    
+    section.centralatendimento h1 {margin-top:0em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:450px; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    
+    .grids5 {width:48%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    
+    .conteudointerno blockquote span.depoalign {width:66%;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+/* 480 */
+@media screen and (min-width: 401px) and (max-width: 480px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em; /* margin-top:5em;*/ margin-top:0;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:47%; width:46%; position:absolute; /*top:0em;*/ top:4em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 200px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:1em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3em 0;}
+    .fundoVerdePreto {margin-top:3em;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:1.5em;}
+    .aplicacoes_b p {text-align: center;}
+    .aplicacoes_b p.video_home {display:block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:block; vertical-align: top; width:80%; text-align: center; margin-top:2.5em; margin-left:0em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:360px; height:264px;}
+    .conteudointerno iframe {width:375px; height: 260px;}
+    
+    .resumos h1 {padding-top:1.5em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:3em;}
+    
+    section.centralatendimento h1 {margin-top:0.7em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; max-width: 85%; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:48%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+/* 400 */
+@media screen and (min-width: 381px) and (max-width: 400px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em; /*margin-top:4.6em;*/ margin-top:0;}
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover, nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:49%; width:44%;  position:absolute; /*top:0em;*/ top:4em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 150px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:0.5em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3em 0;}
+    .fundoVerdePreto {margin-top:2.8em;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:1.5em;}
+    .aplicacoes_b p {text-align: center;}
+    .aplicacoes_b p.video_home {display:block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:block; vertical-align: top; width:80%; text-align: center; margin-top:2.5em; margin-left:0em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:320px; height:264px;}
+    .conteudointerno iframe {width:320px; height: 250px;}
+    
+    .resumos h1 {padding-top:1.5em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:3em;}
+    
+    section.centralatendimento h1 {font-size: 2.7em; margin-top:0.7em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; max-width: 85%; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:98%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+/* 380 */
+@media screen and (min-width: 321px) and (max-width: 380px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:left; text-align:left; padding-bottom:0em; /*margin-top:4.6em;*/ margin-top:0;}
+   
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:right; width:100.2%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home,nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover,nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0;  border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:58%; width:32%; position:absolute; /*top:0em;*/ top:4em; text-align: right;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 120px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.5em;}
+    .resumos h1.tit {background-position: top center; padding:1em 0 0 0; text-align: center;}
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:3em 0;}
+    .fundoVerdePreto {margin-top:2em;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:1.5em;}
+    .aplicacoes_b p {text-align: center;}
+    .aplicacoes_b p.video_home {display:block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:block; vertical-align: top; width:80%; text-align: center; margin-top:2.5em; margin-left:0em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {width:260px; height:200px;}
+    .conteudointerno iframe {width:285px; height: 250px;}
+    
+    .resumos h1 {padding-top:1.5em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:2.5em;}
+    
+    section.centralatendimento h1 {font-size: 2.5em; margin-top:0.7em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; max-width: 85%; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:98%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    .formcontatos span.telsuporte {display:block;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+/* 320 */
+@media screen and (min-width: 241px) and (max-width: 320px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:none; text-align:center; padding:0em; /*margin-top:4.6em;*/ margin-top:0;}
+   
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:none; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:0; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover,nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0;  border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:0; width:100%; position:relative; clear:both; /* top:9em; */ top:0em; text-align: center;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 100px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.7em;}
+    .resumos h1.tit {background-position: top center; padding:0.8em 0 0 0; text-align: center;}
+    hr.internos {display: none;}
+    
+    
+    .grid3 {display:block; width:100%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:2em 0;}
+    .fundoVerdePreto {margin-top:2em;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    .aplicacoes h1 {padding-top:0.8em; padding-bottom:0.8em;}
+    .aplicacoes_b p {text-align: center;}
+    .aplicacoes_b p.video_home {display:block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:block; vertical-align: top; width:80%; text-align: center; margin-top:2.5em; margin-left:0em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {display:none;}
+    .conteudointerno iframe {width:260px; height: 180px;}
+    
+    .resumos h1 {padding-top:0.8em; padding-bottom:0.8em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:2.2em;}
+    
+    section.centralatendimento h1 {font-size: 2.5em; margin-top:0.7em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; max-width: 85%; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:98%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    .formcontatos span.telsuporte {display:block;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+
+/* 240 */
+@media screen and (min-width: 1px) and (max-width: 240px) {
+    body > header {height:auto; position:relative;  z-index:10; top:auto;}
+    #logotipo {display:inline-block; width:100%; float:none; text-align:left; padding-bottom:0em; /* margin-top:4.6em;*/ margin-top:0;}
+    
+    
+    #logotipo img {max-width: 184px; min-width: 184px; }
+    nav {display:inilne-block; float:none; width:100%; text-align: center; padding-top:0;}
+    nav ul li a {padding:1.8em 0em 0.5em 0em; border-radius: 0.5em 0.5em 0 0; letter-spacing: 0px;}
+    nav ul li a:hover, nav ul li a.ativado {padding:1.8em 0em 0.5em 0em;}
+    nav ul li a.home, nav ul li a.icoface {padding:1.8em 0em 0.5em 0em; width:95%;}
+    nav ul li a.home:hover,nav ul li a.icoface:hover, nav ul li a.ativado_home {padding:1.8em 0em 0.5em 0em; width:95%; background-position: center center;}
+    nav ul li {display:block; margin:0; padding:0; border-radius: 0.5em;}
+   
+    /* menu expansível */
+    nav ul {display: none;}  
+    nav a#pull {display: inline-block; }
+    nav li {display: block; float: none; width: 100%; }
+    nav a:link, nav a:visited {text-decoration: none; text-align: center; width:95%; float:none; margin:0.5% 0; padding:1.8em 0 0.5em 0;}
+    nav i.icon {display:inline-block;}
+    span.a-pull {display:block; margin-left:0; width:100%; position:relative; clear:both; /* top:9em; */ top:0em; text-align: center;}
+    nav span.a-pull img {min-width:30px; max-width: 30px;}
+    a#pull {width:8%; padding:0.25em 0em; font-weight: normal; margin:0;}
+    section.interna {margin-top:0em; clear: both;}
+    
+    .sep_grid2 {display: none;}
+    .grid2 {width:100%; }
+    .grid2Foto a:link, .grid2Foto a:visited {display: inline-block; width: 100px;}
+    .grid2Foto img {margin-bottom: -30px;}
+    .grid2 h3 {margin-top: 0.5em;}
+    .resumos h1 {margin-top: 0.7em;}
+    .resumos h1.tit {background-position: top center; padding:0.8em 0 0 0; text-align: center;}
+    hr.internos {display: none;}
+    
+    .aplicacoes h1 {padding-top:0.8em; padding-bottom:0.8em;}
+    .aplicacoes_b p {text-align: center;}
+    .aplicacoes_b p.video_home {display:block; vertical-align: top;}
+    .aplicacoes_b p.link-aplicacoes {display:block; vertical-align: top; width:60%; text-align: center; margin-top:2.5em; margin-left:0em;}
+    .aplicacoes_a {width: 100%; display:block; margin-right: 0%;}
+    .aplicacoes_b {width: 100%; display:block; border-left: none; padding-bottom: 0em; margin-top:5em;}
+    .aplicacoes_b iframe.video_youtube {display:none;}
+    .conteudointerno iframe {width:180px; height: 120px;}
+    
+    .resumos h1 {padding-top:0.8em; padding-bottom:0.8em;}
+    .grid-separacao {display: none;}
+    .grids2 {width:100%;}
+    .margintopacordion {margin-top:2em;}
+    
+    .grid3 {display:block; width:99%; min-height: 100%; height:auto; padding:0 0 1em 0; margin-bottom: 1em;}
+    .sep_grid3 {display: none;}
+    .fundoVerde {padding:2em 0;}
+    .fundoVerdePreto {margin-top:1em;}
+    .back_news {background: transparent;}
+    
+    .formulario {width:100%;}
+    .pagContatos h1 {margin:1em 0 0em 0;}
+    .formcontatos fieldset {width:100%; display:block;}
+    .formcontatos fieldset.primeiroField {margin-right: 0%;}
+    .formcontatos input.botaocontato {width: 50%; margin:2em 0 0 0;}
+    .formcontatos fieldset.enviar {vertical-align: top; text-align: center;}
+    .formcontatos textarea, .formcontatos select {width:95.5%;}
+    .formcontatos fieldset.inteiro {width:100%;}
+    
+    section.centralatendimento h1 {font-size: 2.5em; margin-top:0.7em;}
+    section.centralatendimento span.atendimento {display:block;}
+    #acordionhome {min-height:0; height: auto;}
+    
+    .isa{display: block; float:none; width:100%; padding:3em 0 3em 0; text-align: center;}
+    .footer{display: block; float:none; width:100%; padding:0em 0 3em 0; text-align: center;}
+    
+    .GridSitesja {text-align: center;}
+    
+    .galeriafull{width:100%; text-align: center; display:block; float:none;  margin:1em 0 1.5em 0em;}
+    .galeriadefotos {width:480px; max-width: 95%; display: inline-block;}
+    .resumos p.dataNew {text-indent: 0; text-align: center;}
+    
+    .newsnoticias img {float:none;}
+    .alturaminimadepo {min-height: 0;}
+    .alturaminima {min-height: 0;}
+    
+    .maps iframe {width:100%; padding:0 0 3px 0;}
+    .formcontatos a:link, .formcontatos a:visited {font-size:1em;}
+    
+    .blockemails {float:none;}
+    .codigodebarras {float:none;}
+    
+    .grids5 {width:98%;}
+    
+    .formcontatos h1.h1suporte {float:none; padding-bottom: 0;}
+    .formcontatos h1.h1suporte2 {float:none; padding-top:0;}
+    .formcontatos span.telsuporte {display:block;}
+    
+    .conteudointerno blockquote span.fotodepo {display:block; text-align: center; padding:3% 0 0 0; width:100%;}
+    .conteudointerno blockquote span.depoalign {width:100%; display:block; text-align: center; padding:0;}
+    
+    .conselhoDeliberativo {
+    display: block;
+    width:100%;
+    margin-right: 0;
+    
+    }
+    .conselhoFiscal {
+        display: block;
+        width:100%;
+
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1139px) {
+    .backaplicacoes {background: none;}
+    .backnotdepempresa {background: none;}
+}
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+    .aplicacoesMap {display: none;}
+    .mapaResponsive {display: block;}
+}
+
+@media screen and (min-width: 1367px) and (max-width: 5000px) {
+    .galeriafull {
+    width:40%;
+    float:right;
+    margin:0 0 1.5em 3em;
+    clear:both;
+}
+
+.galeriadefotos {
+    width:48%;
+    clear:both;
+}
+.galeriadefotos ul li img {width:480px; height:250px;}
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 900px) {
+.membros {
+    display: block;
+    width:100%;
+    padding:0;
+    margin-bottom:7em;
+    clear: both;
+}
+
+.membros p {text-align: justify; font-size: 1.4em; vertical-align: middle;}
+.membros img {max-width: 100%; vertical-align: middle; border-radius:100%; margin-bottom:0.6em; margin-right: 0.6em; float:left; width: 120px;}
+}
+
+@media screen and (min-width: 1px) and (max-width: 319px) {
+.membros {
+    display: block;
+    width:100%;
+    padding:0;
+    margin-bottom:3em;
+    clear: both;
+}
+
+.membros p {text-align: center; font-size: 1.4em; vertical-align: middle;}
+.membros img {max-width: 100%; vertical-align: middle; border-radius:100%; margin-bottom:0.6em; margin-right: 0; float:none; width: 120px;}
+}
