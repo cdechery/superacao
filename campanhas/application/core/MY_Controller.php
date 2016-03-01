@@ -21,6 +21,8 @@ class MY_Controller extends CI_Controller
 		if( !$this->check_referer() ) {
 			echo "Access denied!"; die;
 		}
+
+		$this->load->helper('super_url_helper');
 		
 		// params settings available to all Controllers
 		$this->params = $this->config->item('site_params');

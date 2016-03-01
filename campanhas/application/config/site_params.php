@@ -26,5 +26,7 @@ $config['site_params'] = array(
 	'admin_tokens' => array(
 		'50us1gz6b53d9ywAIphzmkE8ra3xj4kP',
 		'5v61bMjknZ698fq9a8M7GtJq6RnEuMFM',
-		'avCBn00UFU014EV80JzJGkvvqUO44Kga')
+		'avCBn00UFU014EV80JzJGkvvqUO44Kga'),
+	'status_campanhas' => array('A'=>'Ativa',
+		'C'=>'Comprada', 'I'=>'Inativa')
 );

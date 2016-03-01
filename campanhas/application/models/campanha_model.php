@@ -16,18 +16,29 @@ class Campanha_model extends MY_Model {
 			array('id'=>$id))->row_array();
 	}
 
+	public function get_all() {
+		return $this->get_filtered(NULL, NULL);
+	}
+
 	public function get_filtered( $txt, $status ) {
+		$this->db->select('titulo, texto_curto, 
+			date_format(ini_vigencia, \'%d/%m/%Y\') as ini_vigencia, 
+			date_format(fim_vigencia, \'%d/%m/%Y\') as fim_vigencia,
+			status, valor', FALSE);
+		$this->db->from('cmp_campanha c');
+
+		if( !empty($status) ) {
+			$this->db->where('status',$status); //Pessoa
+		}
+
 		if( !empty($txt) ) {
 			$this->db->like('titulo', $txt);
 			$this->db->or_like('texto_curto', $txt);
 			$this->db->or_like('texto_longo', $txt);
 		}
 
-		if( !empty($status) ) {
-			$this->db->where('status', $status);
-		}
-
-		return $this->db->get($this->table);
+		$this->db->order_by('dt_inclusao', 'desc');
+		return $this->db->get();
 	}
 
 

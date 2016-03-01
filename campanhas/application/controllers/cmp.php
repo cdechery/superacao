@@ -24,20 +24,20 @@ class Cmp extends MY_Controller {
 			return;
 		}
 
-		$campanhas = $this->campanha_model->get_filtered(NULL, NULL);
+		$campanhas = $this->campanha_model->get_all(NULL, NULL);
 
 		$this->load->view('campanhas_listar', array('campanhas'=>$campanhas));
     }
 
 	public function novo() {
 		if( !$this->is_user_logged_in ) {
-			$this->redirect_login('/admin/campanha/novo');
+			$this->redirect_login('novo');
 		}
 
 		$head_data = array('min_template'=>'image_upload', "title"=>"Nova Campanha");
 
-		$data = array('action' => 'insert', 'titulo'=>'Sbrubbles');
-		$this->load->view('campanhas_listar', array('data'=>$data) );
+		$data = array('action' => 'insert', 'titulo'=>'Nova Campanha');
+		$this->load->view('campanha_form' );
 	}
 
 	public function modificar( $cmp_id ) {

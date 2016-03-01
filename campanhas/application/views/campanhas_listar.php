@@ -1,5 +1,5 @@
 <div class="migalhadepao">
-    <h1><i class="icon icon-folder-open"></i>Campanhas<span class="ico-niveis"><a href="#" title="Cadastrar"><i class="icon icon-file"></i>Novo</a></span></h1>
+    <h1><i class="icon icon-folder-open"></i>Campanhas<span class="ico-niveis"><a href="<?php echo super_admin_url('novo')?>" title="Cadastrar"><i class="icon icon-file"></i>Novo</a></span></h1>
 </div>
 
 <div class="conteudo">
@@ -48,9 +48,9 @@
 ?>
                 <tr>
                     <td class="campanhas"><?php echo $row->titulo?></td>
-                    <td class="campanhas"><?php echo $row->status?></td>
+                    <td class="campanhas"><?php echo $params['status_campanhas'][$row->status]?></td>
                     <td class="campanhas"><?php echo $row->valor?></td>
-                    <td class="campanhas"><?php echo $row->fim_vigencia?></td>
+                    <td class="campanhas"><?php echo $row->ini_vigencia?> até <?php echo $row->fim_vigencia?></td>
                     <td class="campanhas"><a class="icoenable" href="#"><span title="Ativado"><i class="icon icon-star"></i></span></a>  <a href="#" title="Editar"><i class="icon icon-edit"></i></a> <a href="#" title="Deletar"><i class="icon icon-trash"></i></a></td>
                 </tr>
 <?php
@@ -66,7 +66,7 @@
             </tbody>
         </table>   
 
-
+        <!--
         <div class="paginacao">
             <p class="npags">1/2</p>
             <p>
@@ -82,6 +82,7 @@
                 <a href="#" target="_self" title="Última Página"><i class="icon icon-step-forward"></i></a> 
             </p>
         </div>    
+        -->
 </div>
 
 <script>
