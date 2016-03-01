@@ -2,14 +2,12 @@
 
 class MY_Controller extends CI_Controller
 {
-	protected $login_data = array('logged_in'=>FALSE);
 	protected $params = array();
 	protected $is_user_logged_in = FALSE;
 
 	public function __construct() {
 
 		parent::__construct();
-		$this->load->helper('cookie');
 
 		$request_headers = $this->input->request_headers();
 		if( array_key_exists('Origin', $request_headers) ) {
@@ -19,12 +17,18 @@ class MY_Controller extends CI_Controller
 				header('Access-Control-Allow-Origin: '.$origin );
 			}
 		}
+
+		if( !$this->check_referer() ) {
+			echo "Access denied!"; die;
+		}
 		
 		// params settings available to all Controllers
 		$this->params = $this->config->item('site_params');
 		
 		// integracao com sessao do site principal (admin)
-		$this->is_user_logged_in = isset($_SESSION["Usuario_Logado"]);
+
+		$admin_token = $this->input->get('admin_token');
+		$this->is_user_logged_in = in_array($admin_token, $this->params['admin_tokens']);
 
 		// load 'login_status' to the views
 		$this->load->vars( array('params'=>$this->params) );
@@ -32,8 +36,12 @@ class MY_Controller extends CI_Controller
 		header('Content-type: text/html; charset='.$this->config->item('charset'));
 	}
 
-	protected function redirect_login() {
-		echo "TEI!";
+	private function check_referer() {
+		return $_SERVER['SERVER_ADDR'] == $_SERVER['REMOTE_ADDR'];
+	}
+
+	protected function redirect_login( $redir_to ) {
+		redirect('../admin/login.php?campanhas='.$redir_to);
 	}
 	
 	private function allowed_urls() {
@@ -45,4 +53,3 @@ class MY_Controller extends CI_Controller
 		return $alurls;
 	}
 }
-

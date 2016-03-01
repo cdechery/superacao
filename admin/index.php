@@ -1,13 +1,18 @@
 <?php
 session_start();
 
-
 $index = "index.php";
 $id        = isset($_GET['id'])          ? $_GET['id']   : '';
 $campanhas        = isset($_GET['campanhas'])          ? $_GET['campanhas']   : '';
 $subid     = isset($_GET['subid'])       ? $_GET['subid']   : '';
 $acaodepag = isset($_GET['acao'])        ? $_GET['acao'] : '';
 $root ="/superacao/";
+
+$campanhas_tokens = array('50us1gz6b53d9ywAIphzmkE8ra3xj4kP',
+    '5v61bMjknZ698fq9a8M7GtJq6RnEuMFM',
+    'avCBn00UFU014EV80JzJGkvvqUO44Kga');
+$token_idx = rand(0, 2);
+$cmp_token = $campanhas_tokens[$token_idx];
 
 if( !isset($_SESSION["Usuario_Logado"]) || $_SESSION["Usuario_Logado"] != "Admin" ){
 header("location: login.php?id=".$id."&campanhas=".$campanhas);exit;
@@ -71,7 +76,7 @@ $URLUsada      = $L_TituloSite['URL'];
             <li><a href="index.php?id=novidades" title="Novidades" class="<?php echo $clasnovidade; echo $clasnovidade2; ?>"><i class="icon icon-list-alt"></i>Novidades</a></li>
             <li><a href="index.php?id=produtos" title="Projetos e Ações" class="<?php echo $clasprodutos; echo $clasprodutos2; ?>"><i class="icon icon-list-alt"></i>Projetos e Ações</a></li>
             <li><a href="index.php?id=iniciativa" title="Iniciativa" class="<?php echo $clasnot; echo $clasnot2; ?>"><i class="icon icon-list-alt"></i>Iniciativa</a></li>
-            <li><a href="index.php?campanhas=listar" title="Campanha" class="<?php echo $clasnot; echo $clasnot2; ?>"><i class="icon icon-list-alt"></i>Campanha</a></li>
+            <li><a href="index.php?campanhas=listar?admin_token=<?php echo $cmp_token?>" title="Campanha" class="<?php echo $clasnot; echo $clasnot2; ?>"><i class="icon icon-list-alt"></i>Campanha</a></li>
             
             <li><a href="index.php?id=uploads" title="Uploads" class="<?php echo $clasuploads; echo $clasuploads2; ?>"><i class="icon icon-circle-arrow-up"></i>Uploads</a></li> 
             

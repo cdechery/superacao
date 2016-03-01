@@ -7,6 +7,12 @@ $campanhas    = isset($_REQUEST['campanhas'])  ? $_REQUEST['campanhas'] : '';
 $index = 'login.php';
 $erro  = '';
 
+$campanhas_tokens = array('50us1gz6b53d9ywAIphzmkE8ra3xj4kP',
+    '5v61bMjknZ698fq9a8M7GtJq6RnEuMFM',
+    'avCBn00UFU014EV80JzJGkvvqUO44Kga');
+$token_idx = rand(0, 2);
+$cmp_token = $campanhas_tokens[ $token_idx ];
+
 function ErroBanco($a) {
    $a = '<span class="alert">Não foi possível realizar a consulta ao banco de dados.<br />'.mysql_error().'<br /> Erro na linha: '.$a.'</span>';
    return $a;
@@ -39,11 +45,8 @@ if($Number_Validando == 1){
         $_SESSION['ativo_usuario']  = $dados['Ativo'];
 
         $_SESSION['Usuario_Logado']   = "Admin";
-        
-       
 
         $Acesso = date("Y-m-d H:i:s");
-
    
   	      if ( empty($id) && empty($campanhas) ) {
 
@@ -55,7 +58,7 @@ if($Number_Validando == 1){
                    echo '<meta http-equiv=\'refresh\' content=\'0;URL=index.php?id='.$id.'\'>';
                    $erro = '<p class="erro acerto">Aguarde...</p>';
                  } else {
-                   echo '<meta http-equiv=\'refresh\' content=\'0;URL=index.php?campanhas='.$campanhas.'\'>';
+                   echo '<meta http-equiv=\'refresh\' content=\'0;URL=index.php?campanhas='.$campanhas.'?admin_token='.$cmp_token.'\'>';
                    $erro = '<p class="erro acerto">Aguarde...</p>';
                  }
                }

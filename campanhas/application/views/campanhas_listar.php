@@ -43,7 +43,7 @@
 
             <tbody>
 <?php
-    if( $campanhas ) {
+    if( $campanhas->num_rows() > 0 ) {
         foreach( $campanhas->result() as $row ) {
 ?>
                 <tr>
@@ -58,7 +58,7 @@
     } else {
 ?>
                 <tr>
-                    <td colspan="4" class="campanhas">Não há Campanhas para exibir/td>
+                    <td colspan="5" class="campanhas">Não há Campanhas para exibir</td>
                 </tr>
 <?php
     } // if

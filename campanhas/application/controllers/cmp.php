@@ -21,6 +21,7 @@ class Cmp extends MY_Controller {
 	public function listar() {
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('listar');
+			return;
 		}
 
 		$campanhas = $this->campanha_model->get_filtered(NULL, NULL);
