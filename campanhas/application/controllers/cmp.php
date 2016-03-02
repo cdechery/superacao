@@ -33,11 +33,11 @@ class Cmp extends MY_Controller {
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('novo');
 		}
-
-		$head_data = array('min_template'=>'image_upload', "title"=>"Nova Campanha");
+		
+		$this->basic_js_css('image_upload');
 
 		$data = array('action' => 'insert', 'titulo'=>'Nova Campanha');
-		$this->load->view('campanha_form' );
+		$this->load->view('campanha_form', array('data'=>$data) );
 	}
 
 	public function modificar( $cmp_id ) {
@@ -62,9 +62,9 @@ class Cmp extends MY_Controller {
 	// 	echo json_encode(array('status' => $status, 'msg' => $msg) );
 	// }
 
-	public function insert() {
+	public function inserir() {
 		if( !$this->is_user_logged_in ) {
-			$this->redirect_login('/admin/campanha/novo');
+			$this->redirect_login('novo');
 		}
 
 		$status = "";
@@ -95,7 +95,6 @@ class Cmp extends MY_Controller {
 			$status = "ERROR";
 			$msg = validation_errors();
 		} else {
-
 			$new_id = $this->campanha_model->insert( $input );
 			if( $new_id ) {
 				$status = "OK";
@@ -106,7 +105,8 @@ class Cmp extends MY_Controller {
 			}
 		}
 
-		echo json_encode( array('status'=>$status, 'msg'=>$msg, 'cmp_id' => $new_id) );
+		echo json_encode( array('status'=>$status, 
+			'msg'=>$msg, 'cmp_id' => $new_id) );
 	}
 
 	public function update() {
