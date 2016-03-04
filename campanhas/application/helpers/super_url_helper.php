@@ -9,7 +9,6 @@
 		$idx = rand(0, 2);
 		$token = $tokens[ $idx ];
 
-
 		return base_url( 'cmp/'.$url.'?admin_token=' . $token);
 	}
 
@@ -20,7 +19,12 @@
 		$idx = rand(0, 2);
 		$token = $tokens[ $idx ];
 
+		$param_sep = "?";
+		if( strstr($url, "?")!=FALSE ) {
+			$param_sep = "&";
+		}
 
-		return 'index.php?campanhas='.$url.'?admin_token=' . $token;
+		$url = 'index.php?campanhas='.urlencode($url.$param_sep.'admin_token=' . $token);
+		return $url;
 	}
 ?>

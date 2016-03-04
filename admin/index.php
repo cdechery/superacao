@@ -98,7 +98,7 @@ $URLUsada      = $L_TituloSite['URL'];
                         if (file_exists("pags/$id.php")) {
                         include "pags/$id.php"; }
                     } else if (isset($_GET['campanhas'])) {
-                        include 'http://'.$_SERVER['SERVER_NAME'].$root.'campanhas/cmp/'.$_GET['campanhas'];
+                        include 'http://'.$_SERVER['SERVER_NAME'].$root.'campanhas/cmp/'.urldecode($_GET['campanhas']);
                     }
         ?>
     </section>

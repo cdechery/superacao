@@ -43,6 +43,11 @@ function go_home() {
 	location.href = site_root;
 }
 
+function go_to( admin_url ) {
+	var url = '../admin/index.php?campanhas='+admin_url+'?admin_token='+admin_token;
+	location.href = url;
+}
+
 function msg_general_error( msg ) {
 	if( msg==null ) {
 		msg = 'Desculpe, ocorreu uma falha ao executar a ação desejada';
@@ -96,14 +101,30 @@ function img_preload( arrayOfImages ) {
 
 $(function() {
 
-	$('#campanha_insert').submit(function(e) {
+	$('#camp_pesq').submit(function(e) {
 		e.preventDefault();
-		$.post($("#campanha_insert").attr("action"),
-			$("#campanha_insert").serialize(), function(data) {
-			console.log(data);
+
+		var actionSegments = $("#camp_pesq").attr('action').split('=');
+		var pesq = actionSegments[1];
+		var index = actionSegments[0];
+
+		var newAction = index +'='+ encodeURIComponent( pesq +
+			"&" + $("#camp_pesq").serialize() );
+
+		location.href = newAction;
+	});
+
+	$('#campanha_inserir').submit(function(e) {
+		e.preventDefault();
+
+		$.post($("#campanha_inserir").attr("action"),
+			$("#campanha_inserir").serialize(), function(data) {
+
 			var json = myParseJSON( data );
 			if( json.status=="OK" ) {
-				msg_success( json.msg, 'Campanha inserida com sucesso!', true);
+				msg_success( json.msg, 'Campanha inserida com sucesso!', 
+					true, function() { go_to('listar'); } );
+
 			} else {
 				msg_error( json.msg );
 			}
@@ -111,56 +132,55 @@ $(function() {
 		return false;
 	});
 
-	$('#campanha_update').submit(function(e) {
+	$('#campanha_atualizar').submit(function(e) {
 		e.preventDefault();
-		$.post($("#campanha_update").attr("action"),
-			$("#campanha_update").serialize(), function(data) {
+
+		$.post($("#campanha_atualizar").attr("action"),
+			$("#campanha_atualizar").serialize(), function(data) {
 			var json = myParseJSON( data );
 			if( json.status=="OK" ) {
-				msg_success( json.msg, 'Campanha inserida com sucesso!', true);
+				msg_success( json.msg, 'A Campanha foi atualizada com sucesso!', 
+					true, function() { go_to('listar'); } );
 			} else {
 				msg_error( json.msg );
 			}
 		}).fail( function() { msg_general_error(); } );
+
 		return false;
 	});
 
-	$(document).on('click', '.activ_interesse_btn', function(e) {
+	$(document).on('click', '.activ_desativ_btn', function(e) {
 		e.preventDefault();
 		var btn = $(this);
-		if( !btn.hasClass('blue') ) {
-			activ_deactiv_interesse(btn, 'activate');
+		var status = btn.data('cmpstatus');
+		var cmp_id = btn.data('cmpid');
+
+		if( status=='C' ) {
+			msg_error( 'Não é possível modificar o status de uma Campanha que foi comprada!' );
+			return false;
 		} else {
-			activ_deactiv_interesse(btn, 'deactivate');
+			var novo_status = (status=='A')?'I':'A';
+			activ_deactiv( cmp_id, novo_status );
 		}
-		return false;
 	});
 
 });
 
-function activ_deactiv_interesse( btn, action ) {
+function activ_deactiv( id, status ) {
 	$.ajax({
-		url         : site_root + 'interesse/'+action+'/'+btn.data('catid'),
+		url         : '../campanhas/cmp/changestatus'+'/'+id+'/'+status+'?admin_token='+admin_token,
 		contentType : 'charset=utf-8',
 		dataType 	: 'json',
 		success 	: function (data) {
-			if ( data.status === "success" ) {
-				if( action=='activate' ) {
-					btn.html('<i class="fa fa-square-o"></i>&nbsp;Desativar');
-					btn.addClass('blue');
-					btn.parents('tr').removeClass('disabled');
-				} else {
-					btn.html('<i class="fa fa-check-square-o"></i>&nbsp;Ativar');
-					btn.removeClass('blue');
-					btn.parents('tr').addClass('disabled');
-				}
-				return true;
+			var acao = (status == 'A')?'desativada':'ativada';
+			if ( data.result === "OK" ) {
+				msg_success( 'A Campanha foi '+acao+' com sucesso!', true); 
 			} else {
-				msg_error( data.msg );
-				return false;
+				msg_error( 'Não foi possível atualizar o estado da Campanha' );
 			}
 		},
 		error : function (data, status, e) {
+			console.log(data);
 			msg_general_error();
 			return false;
 		}

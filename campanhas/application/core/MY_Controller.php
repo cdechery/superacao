@@ -38,11 +38,12 @@ class MY_Controller extends CI_Controller
 		header('Content-type: text/html; charset='.$this->config->item('charset'));
 	}
 
-	protected function basic_js_css( $template ) {
+	protected function basic_js_css( $template = NULL ) {
 		if( empty($template) ) {
 			$template = "basic";
 		}
 
+		echo "<script type='text/javascript' src='../campanhas/javascript'></script>";
 		echo "<script type='text/javascript' src='../campanhas/min?g=".$template."_js'></script>";
 		echo "<link rel='stylesheet' type='text/css' href='../campanhas/min?g=".$template."_css'/>";
 	}

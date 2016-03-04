@@ -1,6 +1,11 @@
 <div class="migalhadepao">
     <h1><i class="icon icon-folder-open"></i>Campanhas<span class="ico-niveis"><a href="<?php echo super_admin_url('novo')?>" title="Cadastrar"><i class="icon icon-file"></i>Novo</a></span></h1>
 </div>
+<style type="text/css">
+.activ_desativ_btn {
+    display: box;
+}
+</style>
 
 <div class="conteudo">
     <div class="slideancora" id="voltaaqui">
@@ -8,17 +13,16 @@
     </div>
 
     <div style="display: none;" class="slidingDiv" id="aqui">
-        <i class="icon icon-search"></i><a href="#voltaaqui" class="show_hide">Pesquisar</a><i class="icon icon-chevron-down"></i> Os campos estão em ordem de preferência, somente um campo é pesquisado por vez!
+        <i class="icon icon-search"></i><a href="#voltaaqui" class="show_hide">Pesquisar</a>
 
-        <form style="margin-top:1em;" method="post" action="#">
-            <p><label for="Data">Data:</label><br><input value="" name="Data" id="Data" type="text"></p>
-            <p><label for="Titulo">Título/Descrição:</label><br><input value="" name="Titulo" id="Titulo" type="text"></p>
+        <form style="margin-top:1em;" id="camp_pesq" method="post" action="<?php echo super_admin_url('buscar')?>">
+            <p><label for="Titulo">Título/Descrição:</label><br><input id="pesq_texto" name="texto" type="text"></p>
             <p><label for="Situacao">Situação:</label>
-                <select id="Situacao" name="Situacao">
+                <select name="status" id="pesq_status">
                     <option value=""> Escolha uma situação </option>
-                    <option value="ativo"> Ativo </option>
-                    <option value="comprado"> Comprado </option>
-                    <option value="inativo"> Inativo </option>
+                    <option value="A"> Ativa </option>
+                    <option value="C"> Comprada </option>
+                    <option value="I"> Inativa </option>
                 </select>
             </p>
 
@@ -28,8 +32,8 @@
     </div>
 
 
-        <p>Lista geral.</p>
-
+<!--         <p>Lista geral.</p>
+ -->
         <table>
             <thead>
                 <tr>
@@ -45,13 +49,14 @@
 <?php
     if( $campanhas->num_rows() > 0 ) {
         foreach( $campanhas->result() as $row ) {
+            $ativ = ($row->status == 'A')?'icon-star':'icon-star-empty';
 ?>
                 <tr>
                     <td class="campanhas"><?php echo $row->titulo?></td>
                     <td class="campanhas"><?php echo $params['status_campanhas'][$row->status]?></td>
                     <td class="campanhas"><?php echo $row->valor?></td>
                     <td class="campanhas"><?php echo $row->ini_vigencia?> até <?php echo $row->fim_vigencia?></td>
-                    <td class="campanhas"><a class="icoenable" href="#"><span title="Ativado"><i class="icon icon-star"></i></span></a>  <a href="#" title="Editar"><i class="icon icon-edit"></i></a> <a href="#" title="Deletar"><i class="icon icon-trash"></i></a></td>
+                    <td class="campanhas"><a class="icoenable activ_desativ_btn" href="#" data-cmpstatus="<?php echo $row->status?>" data-cmpid="<?php echo $row->id?>"><span title="Clique para mudar o status"><i class="icon <?php echo $ativ?>"></i></span></a>  <a href="<?php echo super_admin_url('modificar/'.$row->id)?>" title="Editar"><i class="icon icon-edit"></i></a> <a href="#" title="Deletar"><i class="icon icon-trash"></i></a></td>
                 </tr>
 <?php
         } //while

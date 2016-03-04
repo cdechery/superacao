@@ -24,10 +24,29 @@ class Cmp extends MY_Controller {
 			return;
 		}
 
+		$this->basic_js_css();
+
 		$campanhas = $this->campanha_model->get_all(NULL, NULL);
 
 		$this->load->view('campanhas_listar', array('campanhas'=>$campanhas));
     }
+
+	public function buscar() {
+		if( !$this->is_user_logged_in ) {
+			$this->redirect_login('listar');
+			return;
+		}
+
+		$status = $this->input->get('status');
+		$texto = $this->input->get('texto');
+
+		$this->basic_js_css();
+
+		$campanhas = $this->campanha_model->get_filtered( $texto, $status );
+
+		$this->load->view('campanhas_listar', array('campanhas'=>$campanhas) );
+    }
+
 
 	public function novo() {
 		if( !$this->is_user_logged_in ) {
@@ -36,7 +55,7 @@ class Cmp extends MY_Controller {
 		
 		$this->basic_js_css('image_upload');
 
-		$data = array('action' => 'insert', 'titulo'=>'Nova Campanha');
+		$data = array('action' => 'inserir', 'titulo'=>'Nova Campanha');
 		$this->load->view('campanha_form', array('data'=>$data) );
 	}
 
@@ -45,8 +64,10 @@ class Cmp extends MY_Controller {
 			$this->redirect_login('/admin/campanha/modificar/'.$cmp_id);
 		}
 
-		$cmp_data = $this->campanha_model->get( $cmp_id );
-		$cmp_data['action'] = 'update';
+		$this->basic_js_css('image_upload');
+
+		$cmp_data = $this->campanha_model->get_data( $cmp_id );
+		$cmp_data['action'] = 'atualizar';
 
 		$this->load->view('campanha_form', array('data'=>$cmp_data) );
 	}
@@ -84,12 +105,9 @@ class Cmp extends MY_Controller {
 			'required|min_length[50]|max_length[200]');
 		$this->form_validation->set_rules('texto_longo', 'Texto Longo',
 			'required|min_length[50]|max_length[2000]');
-		$this->form_validation->set_rules('valor', 'Valor',
-			'required|decimal');
-		// $this->form_validation->set_rules('ini_vigencia', 'Início da Vigência',
-		// 	'valida_data'); //TODO - validar data
-		// $this->form_validation->set_rules('valor', 'Fim da Vigência',
-		// 	'valida_data'); //TODO - validar data
+		$this->form_validation->set_rules('valor', 'Valor', 'required');
+		$this->form_validation->set_rules('ini_vigencia', 'Início da Vigência', 'required');
+		$this->form_validation->set_rules('fim_vigencia', 'Fim da Vigência', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$status = "ERROR";
@@ -109,7 +127,7 @@ class Cmp extends MY_Controller {
 			'msg'=>$msg, 'cmp_id' => $new_id) );
 	}
 
-	public function update() {
+	public function atualizar() {
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('/admin/campanha/modificar/'.$cmp_id);
 		}
@@ -130,12 +148,9 @@ class Cmp extends MY_Controller {
 			'required|min_length[50]|max_length[200]');
 		$this->form_validation->set_rules('texto_longo', 'Texto Longo',
 			'required|min_length[50]|max_length[2000]');
-		$this->form_validation->set_rules('valor', 'Valor',
-			'required|decimal');
-		// $this->form_validation->set_rules('ini_vigencia', 'Início da Vigência',
-		// 	'valida_data'); //TODO - validar data
-		// $this->form_validation->set_rules('valor', 'Fim da Vigência',
-		// 	'valida_data'); //TODO - validar data
+		$this->form_validation->set_rules('valor', 'Valor', 'required');
+		$this->form_validation->set_rules('ini_vigencia', 'Início da Vigência', 'required');
+		$this->form_validation->set_rules('fim_vigencia', 'Fim da Vigência', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$status = "ERROR";
@@ -154,14 +169,14 @@ class Cmp extends MY_Controller {
 	}
 
 	public function changestatus( $id, $status ) {
-		if( !$this->is_user_logged_in ) {
-			$this->redirect_login('/admin/campanha/listar');
-		}
+		// if( !$this->is_user_logged_in ) {
+		// 	$this->redirect_login('/admin/campanha/listar');
+		// }
 
 		$result = $msg = "";
 
-		$statusname = $status === 'A' ? 'ativada' : 'desativada';
-		if($this->campanha_model->update_status($id, $status)) {
+		$statusname = ($status === 'A') ? 'ativada' : 'desativada';
+		if( $this->campanha_model->update_status($id, $status) ) {
 			$result = "OK";
 			$statusvalue = $status;
 			$msg = 'A Campanha foi '.$statusname.' com sucesso!';

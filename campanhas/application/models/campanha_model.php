@@ -11,9 +11,15 @@ class Campanha_model extends MY_Model {
 		if(empty($id) || $id==0) {
 			return false;
 		}
+
+		$this->db->select('c.id, c.titulo, c.texto_curto, c.texto_longo, 
+			date_format(c.ini_vigencia, \'%d/%m/%Y\') as ini_vigencia, 
+			date_format(c.fim_vigencia, \'%d/%m/%Y\') as fim_vigencia,
+			c.status, c.foto, truncate(c.valor, 2) as valor', FALSE);
+		$this->db->from('cmp_campanha c');		
 		
 		return $this->db->get_where($this->table,
-			array('id'=>$id))->row_array();
+			array('c.id'=>$id))->row_array();
 	}
 
 	public function get_all() {
@@ -21,14 +27,14 @@ class Campanha_model extends MY_Model {
 	}
 
 	public function get_filtered( $txt, $status ) {
-		$this->db->select('titulo, texto_curto, 
+		$this->db->select('id, titulo, texto_curto, 
 			date_format(ini_vigencia, \'%d/%m/%Y\') as ini_vigencia, 
 			date_format(fim_vigencia, \'%d/%m/%Y\') as fim_vigencia,
-			status, valor', FALSE);
+			status, truncate(valor, 2) as valor', FALSE);
 		$this->db->from('cmp_campanha c');
 
 		if( !empty($status) ) {
-			$this->db->where('status',$status); //Pessoa
+			$this->db->where('status',$status);
 		}
 
 		if( !empty($txt) ) {
@@ -42,18 +48,23 @@ class Campanha_model extends MY_Model {
 	}
 
 
-	public function insert($cmp_data) {
+	public function insert( $cmp_data ) {
 
 		$insert_data = array(
 			'titulo' => $cmp_data['titulo'],
 			'texto_curto' => $cmp_data['texto_curto'],
 			'texto_longo' => $cmp_data['texto_longo'],
 			'valor' => $cmp_data['valor'],
-			'status' => 'I',
-			'ini_vigencia' => $cmp_data['ini_vigencia'],
-			'fim_vigencia' => $cmp_data['fim_vigencia'],
+			'status' => 'I'
 		);
 
+		$dt_parts = explode('/', $cmp_data['ini_vigencia'] );
+		$data = $dt_parts[2]."-".$dt_parts[1]."-".$dt_parts[0];
+		$insert_data['ini_vigencia'] = $data;
+
+		$dt_parts = explode('/', $cmp_data['fim_vigencia'] );
+		$data = $dt_parts[2]."-".$dt_parts[1]."-".$dt_parts[0];
+		$insert_data['fim_vigencia'] = $data;
 
 		$this->db->set('dt_inclusao', 'NOW()', false);
 
@@ -64,9 +75,9 @@ class Campanha_model extends MY_Model {
 		}
 	}
 
-	public function update($cmp_data, $id) {
+	public function update( $cmp_data ) {
 
-		if( empty($id) || $id==0 ) {
+		if( empty($cmp_data['id']) ) {
 			return false;
 		}
 
@@ -74,14 +85,19 @@ class Campanha_model extends MY_Model {
 			'titulo' => $cmp_data['titulo'],
 			'texto_curto' => $cmp_data['texto_curto'],
 			'texto_longo' => $cmp_data['texto_longo'],
-			'valor' => $cmp_data['valor'],
-			'status' => $cmp_data['status'],
-			'ini_vigencia' => $cmp_data['ini_vigencia'],
-			'fim_vigencia' => $cmp_data['fim_vigencia'],
+			'valor' => $cmp_data['valor']
 		);
 
+		$dt_parts = explode('/', $cmp_data['ini_vigencia'] );
+		$data = $dt_parts[2]."-".$dt_parts[1]."-".$dt_parts[0];
+		$upd_data['ini_vigencia'] = $data;
+
+		$dt_parts = explode('/', $cmp_data['fim_vigencia'] );
+		$data = $dt_parts[2]."-".$dt_parts[1]."-".$dt_parts[0];
+		$upd_data['fim_vigencia'] = $data;
+
 		return( $this->db->update($this->table, 
-			$upd_data, array('id' => $id) ) );
+			$upd_data, array('id' => $cmp_data['id']) ) );
 	}
 
 	public function update_status( $cmp_id, $status ) {
