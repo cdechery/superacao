@@ -12,10 +12,19 @@ class Cmp extends MY_Controller {
 	}
 
 	public function visualizar( $cmp_id ) {
-		$cmp_data = $this->campanha_model->get( $cmp_id );
-		$img_data = $this->get_images( $cmp_id );
+		$cmp_data = $this->campanha_model->get_data( $cmp_id );
+		// $img_data = $this->get_images( $cmp_id );
 
-		$this->load->view('campanha', array('data'=>$cmp_data) );
+		$ps_data = array_merge(
+			array('pagseguro_email'=>$this->params['pagseguro_email']),
+			$cmp_data );
+		
+		$pagseguro_form = $this->load->view('pagseguro_form',
+			array('ps_data'=>$ps_data), TRUE );
+
+		$cmp_data['pagseguro_form'] = $pagseguro_form;
+
+		$this->load->view('campanha_view', array('data'=>$cmp_data) );
 	}
 
 	public function listar() {

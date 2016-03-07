@@ -111,6 +111,23 @@ class Campanha_model extends MY_Model {
 		return( $this->db->update($this->table, $upd_data, $where) );
 	}
 
+	public function update_pagseguro( $cmp_id, $nome, $email ) {
+		if( empty($cmp_id) ) {
+			return FALSE;
+		}
+
+		$upd_data = array(
+			'nome' => $nome,
+			'email' => $email
+			'status' => 'C',
+			'dt_comprado' => 'NOW()'
+		);
+
+		$where = array('id'=>$cmp_id );
+
+		return( $this->db->update($this->table, $upd_data, $where) );
+	}
+
 	public function update_foto($img_data, $cmp_id, $thumb_sizes = array() ) {
 		if( empty($img_data) || $cmp_id==0 ) {
 			return false;
@@ -140,27 +157,28 @@ class Campanha_model extends MY_Model {
 
 		$data_location = "https://ws.".$sandbox."pagseguro.uol.com.br/v3/transactions/";
 		$data_location .= $id_pagseguro_trans;
-		$data_location .= "?email=".$params['pagseguro_email'];
-		$data_location .= "&token=".$params['pagseguro_token'];
+		$data_location .= "?email=".$this->params['pagseguro_email'];
+		$data_location .= "&token=".$this->params['pagseguro_token'];
 
 		$ctx = stream_context_create(array( 
    				 'http' => array( 
-        			'timeout' => 1 
+        			'timeout' => 5
         	 	) 
 			) 
 		); 
 
 		$data = @file_get_contents($data_location, 0, $ctx);
 		$json_data = NULL;
+
 		if( !$data ) {
 			$status = "TIMEOUT";
 		} else {
 			$status = "OK";
 			$xml_data = simplexml_load_string($data);
-			$json_data = json_encode($xml_data);
+			// var_dump($xml_data); die;
 		}
 
-		return array("status"=>$status, "data"=>$json_data);
+		return array("status"=>$status, "data"=>$xml_data);
 	}
 }
 ?>
