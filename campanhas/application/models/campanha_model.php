@@ -13,6 +13,8 @@ class Campanha_model extends MY_Model {
 		}
 
 		$this->db->select('c.id, c.titulo, c.texto_curto, c.texto_longo, 
+			c.nome_comprador, c.email_comprador, 
+			date_format(c.data_compra, \'%d/%m/%Y\') as data_compra,
 			date_format(c.ini_vigencia, \'%d/%m/%Y\') as ini_vigencia, 
 			date_format(c.fim_vigencia, \'%d/%m/%Y\') as fim_vigencia,
 			c.status, c.foto, truncate(c.valor, 2) as valor', FALSE);
@@ -28,6 +30,8 @@ class Campanha_model extends MY_Model {
 
 	public function get_filtered( $txt, $status ) {
 		$this->db->select('id, titulo, texto_curto, 
+			nome_comprador, email_comprador, 
+			date_format(data_compra, \'%d/%m/%Y\') as data_compra,
 			date_format(ini_vigencia, \'%d/%m/%Y\') as ini_vigencia, 
 			date_format(fim_vigencia, \'%d/%m/%Y\') as fim_vigencia,
 			status, truncate(valor, 2) as valor', FALSE);
@@ -111,17 +115,19 @@ class Campanha_model extends MY_Model {
 		return( $this->db->update($this->table, $upd_data, $where) );
 	}
 
-	public function update_pagseguro( $cmp_id, $nome, $email ) {
+	public function update_compra( $cmp_id, $nome, $email, $id_trans ) {
 		if( empty($cmp_id) ) {
 			return FALSE;
 		}
 
 		$upd_data = array(
-			'nome' => $nome,
-			'email' => $email
+			'nome_comprador' => (string)$nome,
+			'email_comprador' => (string)$email,
 			'status' => 'C',
-			'dt_comprado' => 'NOW()'
+			'id_trans_pagseguro' => (string)$id_trans
 		);
+
+		$this->db->set('data_compra', 'NOW()', false);
 
 		$where = array('id'=>$cmp_id );
 
@@ -145,40 +151,6 @@ class Campanha_model extends MY_Model {
 		}
 
 		return( $this->db->update($this->table, $upd_data, array('id' => $user_id)) );
-	}
-
-	public function get_pagseguro_trans( $id_pagseguro_trans ) {
-		$status = "";
-
-		$sandbox = "";
-		if( ENVIRONMENT != "production" ) {
-			$sandbox = "sandbox.";
-		}
-
-		$data_location = "https://ws.".$sandbox."pagseguro.uol.com.br/v3/transactions/";
-		$data_location .= $id_pagseguro_trans;
-		$data_location .= "?email=".$this->params['pagseguro_email'];
-		$data_location .= "&token=".$this->params['pagseguro_token'];
-
-		$ctx = stream_context_create(array( 
-   				 'http' => array( 
-        			'timeout' => 5
-        	 	) 
-			) 
-		); 
-
-		$data = @file_get_contents($data_location, 0, $ctx);
-		$json_data = NULL;
-
-		if( !$data ) {
-			$status = "TIMEOUT";
-		} else {
-			$status = "OK";
-			$xml_data = simplexml_load_string($data);
-			// var_dump($xml_data); die;
-		}
-
-		return array("status"=>$status, "data"=>$xml_data);
 	}
 }
 ?>

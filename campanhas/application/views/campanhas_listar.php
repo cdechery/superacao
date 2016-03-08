@@ -38,7 +38,7 @@
             <thead>
                 <tr>
                   <th>Título</th>
-                  <th>Situação</th>
+                  <th>Comprador</th>
                   <th>Valor</th>
                   <th>Vigência</th>
                   <th>Opções</th>
@@ -53,33 +53,43 @@
 ?>
                 <tr>
                     <td class="campanhas"><?php echo $row->titulo?></td>
-                    <td class="campanhas"><?php echo $params['status_campanhas'][$row->status]?></td>
-                    <td class="campanhas"><?php echo $row->valor?></td>
-                    <td class="campanhas"><?php echo $row->ini_vigencia?> até <?php echo $row->fim_vigencia?></td>
-                    <td class="campanhas"><a class="icoenable activ_desativ_btn" href="#" data-cmpstatus="<?php echo $row->status?>" data-cmpid="<?php echo $row->id?>"><span title="Clique para mudar o status"><i class="icon <?php echo $ativ?>"></i></span></a>  <a href="<?php echo super_admin_url('modificar/'.$row->id)?>" title="Editar"><i class="icon icon-edit"></i></a> <a href="#" title="Deletar"><i class="icon icon-trash"></i></a></td>
-                </tr>
+                    <td class="campanhas">
 <?php
-        } //while
-    } else {
-?>
-                <tr>
-                    <td colspan="5" class="campanhas">Não há Campanhas para exibir</td>
-                </tr>
-<?php
-    } // if
-?>
-            </tbody>
-        </table>   
-
-        <!--
-        <div class="paginacao">
-            <p class="npags">1/2</p>
-            <p>
-                <a href="#" class="desativado">
-                    <i class="icon icon-step-backward" style="filter: alpha(opacity=20); -moz-opacity: 0.2; opacity:0.2;"></i>
-                </a> 
-                <a href="#" class="desativado">
-                    <i class="icon icon-backward" style="filter: alpha(opacity=20); -moz-opacity: 0.2; opacity:0.2;"></i>
+            $nome_comprador = "-";
+            $email_comprador = "";
+            // $data_compra = "";
+            if( $row->nome_comprador ) {
+                $nome_comprador = "<a href='mailto: ".$row->email_comprador."'>".$row->nome_comprador."</a>";
+                // $data_compra = "<br>".$row->data_compra;
+                            }
+                ?>                        <?php echo $nome_comprador ?>
+                                    </td>
+                                    <td class="campanhas"><?php echo $row->valor?></td>
+                                    <td class="campanhas"><?php echo $row->ini_vigencia?> até <?php echo $row->fim_vigencia?></td>
+                                    <td class="campanhas"><a class="icoenable activ_desativ_btn" href="#" data-cmpstatus="<?php echo $row->status?>" data-cmpid="<?php echo $row->id?>"><span title="Clique para mudar o status"><i class="icon <?php echo $ativ?>"></i></span></a>  <a href="<?php echo super_admin_url('modificar/'.$row->id)?>" title="Editar"><i class="icon icon-edit"></i></a></td>
+                                </tr>
+                <?php
+                        } //while
+                    } else {
+                ?>
+                                <tr>
+                                    <td colspan="5" class="campanhas">Não há Campanhas para exibir</td>
+                                </tr>
+                <?php
+                    } // if
+                ?>
+                            </tbody>
+                        </table>   
+                
+                        <!--
+                        <div class="paginacao">
+                            <p class="npags">1/2</p>
+                            <p>
+                                <a href="#" class="desativado">
+                                    <i class="icon icon-step-backward" style="filter: alpha(opacity=20); -moz-opacity: 0.2; opacity:0.2;"></i>
+                                </a> 
+                                <a href="#" class="desativado">
+                                    <i class="icon icon-"backward" style="filter: alpha(opacity=20); -moz-opacity: 0.2; opacity:0.2;"></i>
                 </a>  
                 <span title="Página Atual" class="numerodesativado">1</span>  
                 <a href="#" target="_self">2</a> 

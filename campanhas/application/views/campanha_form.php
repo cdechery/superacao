@@ -37,6 +37,9 @@
         $desc_status = "Por padrão toda nova Campanha é <b>Inativa</b>.";
     } else {
         $desc_status = $statuses[ $status ];
+        if( $curr_status == 'C' ) {
+            $desc_status .= " em ".$data['data_compra']." por ".$data['nome_comprador']." (".$data['email_comprador'].")";
+        }
     }
 ?>
         <p><label for="situacao">Situação:</label> <?php echo $desc_status?>
