@@ -13,10 +13,11 @@ $campanhas_tokens = array('50us1gz6b53d9ywAIphzmkE8ra3xj4kP',
 $token_idx = rand(0, 2);
 $cmp_token = $campanhas_tokens[ $token_idx ];
 
-function ErroBanco($a) {
+function ErroBanco( $a ) {
    $a = '<span class="alert">Não foi possível realizar a consulta ao banco de dados.<br />'.mysql_error().'<br /> Erro na linha: '.$a.'</span>';
    return $a;
 }
+
 require_once('includes/conexao.php');
 
 define("CMS_TKN",1);
@@ -58,7 +59,12 @@ if($Number_Validando == 1){
                    echo '<meta http-equiv=\'refresh\' content=\'0;URL=index.php?id='.$id.'\'>';
                    $erro = '<p class="erro acerto">Aguarde...</p>';
                  } else {
-                   echo '<meta http-equiv=\'refresh\' content=\'0;URL=index.php?campanhas='.$campanhas.'?admin_token='.$cmp_token.'\'>';
+                    $url = 'index.php?campanhas='.$campanhas;
+                    if( strstr($campanhas, "admin_token")==FALSE ) {
+                      $url .= '?admin_token='.$cmp_token;
+                    }
+
+                   echo '<meta http-equiv=\'refresh\' content=\'0;URL='.$url.'\'>';
                    $erro = '<p class="erro acerto">Aguarde...</p>';
                  }
                }

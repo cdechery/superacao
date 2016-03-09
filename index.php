@@ -4,21 +4,26 @@
     $host      = $_SERVER['HTTP_HOST'];
 
     //$UrlAtual  = $protocolo.'://'.$host.'/superacao/';
-    //$UrlAtual  = $protocolo.'://'.$host.'/www/sites/institutosuperacao/siteonline/';
+    // $UrlAtual  = $protocolo.'://'.$host.'/www/sites/institutosuperacao/site-novo/';
     $UrlAtual  = $protocolo.'://'.$host.'/superacao/';
 
     $index      = "index.php";
-    require_once('admin/includes/funcoes_public.php');
+
     require_once('admin/includes/conexao.php');
+    require_once('admin/includes/funcoes_public.php');
+
     $atual      = (isset($_GET['secao'])) ? $_GET['secao'] : 'home';
+
+    $isCampanhas = ( strstr($atual, "campanhas")!=FALSE );
+
     $permissao  = array('home', 'doe', 'projetos', 'novidades', 'assembleia', 'abrangencia', 'quemsomos', 'contatos', 'erro');
     $pasta	    = 'pags';
-            if(substr_count($atual, '/') > 0) {
+        if(substr_count($atual, '/') > 0) {
                 $atual  = explode('/', $atual);
                 $pagina = (file_exists("{$pasta}/".$atual[0].'.php') && in_array($atual[0], $permissao)) ? $atual[0] : 'erro';
-                $nivel1 = isset($atual[1]) && !empty($atual[1])  ? retiraCaracteres($atual[1]) : '';
-                $nivel2 = isset($atual[2]) && !empty($atual[2])  ? retiraCaracteres($atual[2]) : '';
-                $nivel3 = isset($atual[3]) && !empty($atual[3])  ? retiraCaracteres($atual[3]) : '';
+                $nivel1 = isset($atual[1]) && !empty($atual[1])  ? urlencode(retiraCaracteres($atual[1])) : '';
+                $nivel2 = isset($atual[2]) && !empty($atual[2])  ? urlencode(retiraCaracteres($atual[2])) : '';
+                $nivel3 = isset($atual[3]) && !empty($atual[3])  ? urlencode(retiraCaracteres($atual[3])) : '';
 	    }else{
                 $pagina = (file_exists("{$pasta}/".$atual.'.php') && in_array($atual, $permissao)) ? $atual : 'erro';
                 $nivel1 = '';
@@ -72,6 +77,7 @@
     $class2     = $pagina == 'quemsomos'       ? 'ativado' : '' ;
     $class3     = $pagina == 'projetos'        ? 'ativado' : '' ;
     $class4     = $pagina == 'doe'             ? 'ativado' : '' ;
+    $class17    = $pagina == 'campanhas'        ? 'ativado' : '' ;
     $class7     = $pagina == 'contatos'        ? 'ativado' : '' ;
     $class8     = $pagina == 'novidades'       ? 'ativado' : '' ;
     $class9     = $pagina == 'quemsomos'       ? 'ativadodep' : '' ;
@@ -80,8 +86,8 @@
     $class14    = $pagina == 'quemsomos'       ? 'ativado_quemsomos' : '' ;
     $class15    = $pagina == 'abrangencia'     ? 'ativado_quemsomos' : '' ;
     $class16    = $pagina == 'assembleia'      ? 'ativado_quemsomos' : '' ;
+
     
-            
     switch ($pagina){
         case 'home':
             $paginatitulo = '';
@@ -91,6 +97,12 @@
 
         case 'quemsomos':
             $paginatitulo = 'Quem Somos | ';
+            $Descricao_Site_Config = $Descricao_Site_Config;
+            $FotoSocialSEO         = $FotoSocialSEO;
+        break;
+
+        case 'campanhas':
+            $paginatitulo = 'Campanhas | ';
             $Descricao_Site_Config = $Descricao_Site_Config;
             $FotoSocialSEO         = $FotoSocialSEO;
         break;
@@ -239,15 +251,9 @@
                         $FotoSocialSEO         = $FotoSocialSEO;
                     }
             break;
-            
-            
-            
-                
-               
-            
            
             }
-            
+
            
 ?>
 <html class="no-js" lang="pt-br">
@@ -273,18 +279,24 @@
 echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/estilos.css" />';
 echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/responsive.css" />';
 
+
 echo '<script type="text/javascript" src="'.$UrlAtual.'js/jquery-1.8.3.min.js"></script>';
 
-if ($pagina == 'home' || $pagina == 'projetos' || $pagina == 'novidades' || $pagina == 'doe'){
+
+if ($pagina == 'home' || $pagina == 'projetos' || $pagina == 'novidades' || $pagina == 'doe' || $pagina == 'campanhas'){
     echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/component.css" />';
     echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/slippry.css" />';
     echo '<script type="text/javascript" src="'.$UrlAtual.'js/slippry.min.js"></script>';
 }
 
+if ($pagina == 'campanhas') {
+    echo '<script type="text/javascript" src="'.$UrlAtual.'js/efeito-campanha.js"></script>';
+}
+
 if ($pagina == 'contatos'){
     echo '<script type="text/javascript" src="'.$UrlAtual.'js/jquery.maskedinput-1.1.4.pack.js"></script>';
 }
-if ($pagina == 'projetos' || $pagina == 'novidades' || $pagina == 'doe'){
+if ($pagina == 'projetos' || $pagina == 'novidades' || $pagina == 'doe' || $pagina == 'campanha'){
 echo '<link href="'.$UrlAtual.'shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
       <script type="text/javascript" src="'.$UrlAtual.'shadowbox/shadowbox.js"></script>';
 echo '<script type="text/javascript">
@@ -341,12 +353,13 @@ echo '<script type="text/javascript" src="'.$UrlAtual.'js/modernizr-sitesja.js">
     
 </header>
     
-
-    <?php require("{$pasta}/{$pagina}.php"); ?>
-    
-    
-    
-    
+<?php
+    if( $isCampanhas ) {
+        include 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.urldecode( $atual[1] );
+    } else {
+        require("{$pasta}/{$pagina}.php");
+    }
+?>
     
 <footer>
     <div class="wrapfull fundoVerdeEscuro">
