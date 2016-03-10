@@ -6,7 +6,7 @@ $id        = isset($_GET['id'])          ? $_GET['id']   : '';
 $campanhas        = isset($_GET['campanhas'])          ? $_GET['campanhas']   : '';
 $subid     = isset($_GET['subid'])       ? $_GET['subid']   : '';
 $acaodepag = isset($_GET['acao'])        ? $_GET['acao'] : '';
-$root ="/superacao/";
+$root = "/superacao/";
 
 $campanhas_tokens = array('50us1gz6b53d9ywAIphzmkE8ra3xj4kP',
     '5v61bMjknZ698fq9a8M7GtJq6RnEuMFM',
@@ -37,10 +37,13 @@ $URLUsada      = $L_TituloSite['URL'];
 <link href="imgs/favicon.png" rel="icon" sizes="64x64">
 <link href="estilos/estilos.css" rel="stylesheet" media="screen">
 <link href="estilos/responsive.css" rel="stylesheet" media="screen">
+<link href="estilos/jquery-ui.css" rel="stylesheet" media="screen">
 
 <link href="estilos/print.css" rel="stylesheet" media="print">
 <script src="js/jquery172.js"></script>
 <script src="js/jquery.maskedinput-1.1.4.pack.js"></script>
+<script src="js/jquery.price_format.1.7.min.js"></script>
+<script src="js/jquery-ui.js"></script>
 <script src="js/limitar_textarea.js"></script>
 <script src="js/modernizr-sitesja.js"></script>
 </head>
@@ -52,6 +55,10 @@ $URLUsada      = $L_TituloSite['URL'];
     </header>
     
         <?php
+
+        $Pegar_valor_Campanha  = explode("?", $campanhas);
+        $Pegar_valor_Campanha2 = explode("%", $campanhas);
+
         $class1          = $id        == ''                                       ? 'ativado' : '' ;
         $class11         = $acaodepag == 'home'                                   ? 'ativado' : '' ;
         $classaa         = $id        == 'home'                                   ? 'ativado' : '' ;
@@ -66,6 +73,15 @@ $URLUsada      = $L_TituloSite['URL'];
         $clasprodutos2   = $acaodepag == 'produtos'                               ? 'ativado' : '' ;
         $clasnovidade    = $id        == 'novidades'                              ? 'ativado' : '' ;
         $clasnovidade2   = $acaodepag == 'novidades'                              ? 'ativado' : '' ;
+        $clascampanhas   = $Pegar_valor_Campanha[0]  == 'novo'                    ? 'ativado' : '' ;
+        $clascampanhas2  = $Pegar_valor_Campanha[0]  == 'listar'                  ? 'ativado' : '' ;
+        $clascampanhas3  = $Pegar_valor_Campanha[0]  == 'modificar'               ? 'ativado' : '' ;
+        $clascampanhas4  = $Pegar_valor_Campanha2[0] == 'buscar'                  ? 'ativado' : '' ;
+
+        if ($id == '' && $campanhas != '') {
+            $class1 = '';
+        }
+        
         
         ?>
     <nav>
@@ -76,8 +92,7 @@ $URLUsada      = $L_TituloSite['URL'];
             <li><a href="index.php?id=novidades" title="Novidades" class="<?php echo $clasnovidade; echo $clasnovidade2; ?>"><i class="icon icon-list-alt"></i>Novidades</a></li>
             <li><a href="index.php?id=produtos" title="Projetos e Ações" class="<?php echo $clasprodutos; echo $clasprodutos2; ?>"><i class="icon icon-list-alt"></i>Projetos e Ações</a></li>
             <li><a href="index.php?id=iniciativa" title="Iniciativa" class="<?php echo $clasnot; echo $clasnot2; ?>"><i class="icon icon-list-alt"></i>Iniciativa</a></li>
-            <li><a href="index.php?campanhas=listar?admin_token=<?php echo $cmp_token?>" title="Campanha" class="<?php echo $clasnot; echo $clasnot2; ?>"><i class="icon icon-list-alt"></i>Campanha</a></li>
-            
+            <li><a href="index.php?campanhas=listar?admin_token=<?php echo $cmp_token?>" title="Campanha" class="<?php echo $clascampanhas; echo $clascampanhas2; echo $clascampanhas3; echo $clascampanhas4; ?>"><i class="icon icon-list-alt"></i>Campanha</a></li>
             <li><a href="index.php?id=uploads" title="Uploads" class="<?php echo $clasuploads; echo $clasuploads2; ?>"><i class="icon icon-circle-arrow-up"></i>Uploads</a></li> 
             
             
@@ -98,7 +113,8 @@ $URLUsada      = $L_TituloSite['URL'];
                         if (file_exists("pags/$id.php")) {
                         include "pags/$id.php"; }
                     } else if (isset($_GET['campanhas'])) {
-                        include 'http://'.$_SERVER['SERVER_NAME'].$root.'_cmp/campanha/'.urldecode($_GET['campanhas']);
+                      $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].$root.'_cmp/campanha/'.urldecode($_GET['campanhas']) );
+                      echo $content;
                     }
         ?>
     </section>
@@ -107,23 +123,23 @@ $URLUsada      = $L_TituloSite['URL'];
     
 </div>
     <script>
-		$(function() {
-			var pull 		= $('#pull');
-				menu 		= $('nav ul');
-				menuHeight	= menu.height();
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
 
-			$(pull).on('click', function(e) {
-				e.preventDefault();
-				menu.slideToggle();
-			});
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
 
-			$(window).resize(function(){
-        		var w = $(window).width();
-        		if(w > 768 && menu.is(':hidden')) {
-        			menu.removeAttr('style');
-        		}
-    		});
-		});
-	</script>
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 768 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

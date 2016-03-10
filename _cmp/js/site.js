@@ -160,29 +160,47 @@ $(function() {
 			return false;
 		} else {
 			var novo_status = (status=='A')?'I':'A';
-			activ_deactiv( cmp_id, novo_status );
+			if( activ_deactiv( cmp_id, novo_status ) ) {
+				btn.data('cmpstatus', novo_status);
+
+				if( novo_status == 'A' ) {
+					btn.addClass('icoenable');
+					btn.find('i').removeClass('icon-star-empty');
+					btn.find('i').addClass('icon-star');
+				} else {
+					btn.removeClass('icoenable');
+					btn.find('i').removeClass('icon-star');
+					btn.find('i').addClass('icon-star-empty');
+				}
+			}
 		}
 	});
 
 });
 
+var ret_activ = false;
 function activ_deactiv( id, status ) {
+
 	$.ajax({
 		url         : '../_cmp/campanha/changestatus'+'/'+id+'/'+status+'?admin_token='+admin_token,
 		contentType : 'charset=utf-8',
 		dataType 	: 'json',
 		success 	: function (data) {
-			var acao = (status == 'A')?'desativada':'ativada';
+			var acao = (status == 'A')?'ativada':'desativada';
 			if ( data.result === "OK" ) {
+				ret_activ = true;
 				msg_success( 'A Campanha foi '+acao+' com sucesso!', true); 
 			} else {
+				ret_activ = false;
 				msg_error( 'Não foi possível atualizar o estado da Campanha' );
 			}
 		},
 		error : function (data, status, e) {
+			ret = false;
 			console.log(data);
 			msg_general_error();
-			return false;
 		}
 	});
+
+	return ret_activ;
 }

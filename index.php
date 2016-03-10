@@ -279,9 +279,7 @@
 echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/estilos.css" />';
 echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/responsive.css" />';
 
-
 echo '<script type="text/javascript" src="'.$UrlAtual.'js/jquery-1.8.3.min.js"></script>';
-
 
 if ($pagina == 'home' || $pagina == 'projetos' || $pagina == 'novidades' || $pagina == 'doe' || $pagina == 'campanhas'){
     echo '<link rel="stylesheet" type="text/css" media="all" href="'.$UrlAtual.'estilos/component.css" />';
@@ -355,7 +353,8 @@ echo '<script type="text/javascript" src="'.$UrlAtual.'js/modernizr-sitesja.js">
     
 <?php
     if( $isCampanhas ) {
-        include 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.urldecode( $atual[1] );
+        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.urldecode( $atual[1] ) );
+        echo $content;
     } else {
         require("{$pasta}/{$pagina}.php");
     }

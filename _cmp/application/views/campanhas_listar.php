@@ -49,7 +49,8 @@
 <?php
     if( $campanhas->num_rows() > 0 ) {
         foreach( $campanhas->result() as $row ) {
-            $ativ = ($row->status == 'A')?'icon-star':'icon-star-empty';
+            $ico = ($row->status == 'A')?'icoenable':'';
+            $ico_star = ($row->status == 'A')?'icon-star':'icon-star-empty';
 ?>
                 <tr>
                     <td class="campanhas"><?php echo $row->titulo?></td>
@@ -66,7 +67,7 @@
                                     </td>
                                     <td class="campanhas"><?php echo $row->valor?></td>
                                     <td class="campanhas"><?php echo $row->ini_vigencia?> até <?php echo $row->fim_vigencia?></td>
-                                    <td class="campanhas"><a class="icoenable activ_desativ_btn" href="#" data-cmpstatus="<?php echo $row->status?>" data-cmpid="<?php echo $row->id?>"><span title="Clique para mudar o status"><i class="icon <?php echo $ativ?>"></i></span></a>  <a href="<?php echo super_admin_url('modificar/'.$row->id)?>" title="Editar"><i class="icon icon-edit"></i></a></td>
+                                    <td class="campanhas"><a class="<?php echo $ico?> activ_desativ_btn" href="#" data-cmpstatus="<?php echo $row->status?>" data-cmpid="<?php echo $row->id?>"><span title="Clique para mudar o status"><i class="icon <?php echo $ico_star?>"></i></span></a>  <a href="<?php echo super_admin_url('modificar/'.$row->id)?>" title="Editar"><i class="icon icon-edit"></i></a></td>
                                 </tr>
                 <?php
                         } //while

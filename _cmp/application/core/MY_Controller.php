@@ -18,17 +18,12 @@ class MY_Controller extends CI_Controller
 			}
 		}
 
-		if( !$this->check_referer() ) {
-			echo "Access denied!"; die;
-		}
-
 		$this->load->helper('super_url_helper');
 		
 		// params settings available to all Controllers
 		$this->params = $this->config->item('site_params');
 		
 		// integracao com sessao do site principal (admin)
-
 		$admin_token = $this->input->get('admin_token');
 		$this->is_user_logged_in = in_array($admin_token, $this->params['admin_tokens']);
 
@@ -48,7 +43,7 @@ class MY_Controller extends CI_Controller
 		echo "<link rel='stylesheet' type='text/css' href='../_cmp/min?g=".$template."_css'/>";
 	}
 
-	private function check_referer() {
+	protected function check_referer() {
 		return $_SERVER['SERVER_ADDR'] == $_SERVER['REMOTE_ADDR'];
 	}
 

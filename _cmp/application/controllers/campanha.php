@@ -11,6 +11,7 @@ class Campanha extends MY_Controller {
 		redirect('../');
 	}
 
+	// PUBLICO
 	public function visualizar( $cmp_id ) {
 		$cmp_data = $this->campanha_model->get_data( $cmp_id );
 		// $img_data = $this->get_images( $cmp_id );
@@ -27,7 +28,10 @@ class Campanha extends MY_Controller {
 		$this->load->view('campanha_view', array('data'=>$cmp_data) );
 	}
 
+	// PUBLICO
 	public function ativas() {
+		$this->basic_js_css();
+
 		$cmp_ativas = $this->campanha_model->get_active();
 
 		$campanhas = array();
@@ -38,7 +42,12 @@ class Campanha extends MY_Controller {
 		$this->load->view('campanhas_ativas', array('campanhas'=>$campanhas) );
 	}
 
+	// ADMIN
 	public function listar() {
+		if( !$this->check_referer() ) {
+			echo "Access denied!"; die;
+		}
+
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('listar');
 			return;
@@ -51,7 +60,12 @@ class Campanha extends MY_Controller {
 		$this->load->view('campanhas_listar', array('campanhas'=>$campanhas));
     }
 
+	// ADMIN
 	public function buscar() {
+		if( !$this->check_referer() ) {
+			echo "Access denied!"; die;
+		}
+
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('listar');
 			return;
@@ -68,7 +82,12 @@ class Campanha extends MY_Controller {
     }
 
 
+	// ADMIN
 	public function novo() {
+		if( !$this->check_referer() ) {
+			echo "Access denied!"; die;
+		}
+
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('novo');
 		}
@@ -79,7 +98,12 @@ class Campanha extends MY_Controller {
 		$this->load->view('campanha_form', array('data'=>$data) );
 	}
 
+	// ADMIN
 	public function modificar( $cmp_id ) {
+		if( !$this->check_referer() ) {
+			echo "Access denied!"; die;
+		}
+
 		if( !$this->is_user_logged_in ) {
 			$this->redirect_login('/admin/campanha/modificar/'.$cmp_id);
 		}
