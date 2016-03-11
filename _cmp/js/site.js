@@ -135,16 +135,18 @@ $(function() {
 	$('#campanha_atualizar').submit(function(e) {
 		e.preventDefault();
 
-		$.post($("#campanha_atualizar").attr("action"),
-			$("#campanha_atualizar").serialize(), function(data) {
-			var json = myParseJSON( data );
-			if( json.status=="OK" ) {
-				msg_success( json.msg, 'A Campanha foi atualizada com sucesso!', 
-					true, function() { go_to('listar'); } );
-			} else {
-				msg_error( json.msg );
-			}
-		}).fail( function() { msg_general_error(); } );
+		do_upload_avatar();
+
+		// $.post($("#campanha_atualizar").attr("action"),
+		// 	$("#campanha_atualizar").serialize(), function(data) {
+		// 	var json = myParseJSON( data );
+		// 	if( json.status=="OK" ) {
+		// 		msg_success( json.msg, 'A Campanha foi atualizada com sucesso!', 
+		// 			true, function() { go_to('listar'); } );
+		// 	} else {
+		// 		msg_error( json.msg );
+		// 	}
+		// }).fail( function() { msg_general_error(); } );
 
 		return false;
 	});
@@ -160,26 +162,39 @@ $(function() {
 			return false;
 		} else {
 			var novo_status = (status=='A')?'I':'A';
-			if( activ_deactiv( cmp_id, novo_status ) ) {
-				btn.data('cmpstatus', novo_status);
-
-				if( novo_status == 'A' ) {
-					btn.addClass('icoenable');
-					btn.find('i').removeClass('icon-star-empty');
-					btn.find('i').addClass('icon-star');
-				} else {
-					btn.removeClass('icoenable');
-					btn.find('i').removeClass('icon-star');
-					btn.find('i').addClass('icon-star-empty');
-				}
-			}
+			activ_deactiv( cmp_id, novo_status, btn );
 		}
 	});
 
 });
 
-var ret_activ = false;
-function activ_deactiv( id, status ) {
+var upload_result = false;
+function do_upload_avatar() {
+
+	$.ajaxFileUpload({
+		url 		   : site_root +'campanha/upload_imagem/',
+		secureuri      : false,
+		fileElementId  :'foto',
+		contentType    : 'application/json; charset=utf-8',
+		dataType	   : 'json',
+		data           : {},
+		success  : function (data) {
+			if( data.status != 'OK') {
+				alert(data.msg);
+				upload_result = true;
+			} else {
+				upload_result = false;
+			}
+		},
+		error : function (data, status, e) {
+			upload_result = false;
+		}
+	});
+
+	return upload_result;
+}
+
+function activ_deactiv( id, status, btn ) {
 
 	$.ajax({
 		url         : '../_cmp/campanha/changestatus'+'/'+id+'/'+status+'?admin_token='+admin_token,
@@ -188,7 +203,18 @@ function activ_deactiv( id, status ) {
 		success 	: function (data) {
 			var acao = (status == 'A')?'ativada':'desativada';
 			if ( data.result === "OK" ) {
-				ret_activ = true;
+				btn.data('cmpstatus', status);
+
+				if( status == 'A' ) {
+					btn.addClass('icoenable');
+					btn.find('i').removeClass('icon-star-empty');
+					btn.find('i').addClass('icon-star');
+				} else {
+					btn.removeClass('icoenable');
+					btn.find('i').removeClass('icon-star');
+					btn.find('i').addClass('icon-star-empty');
+				}
+
 				msg_success( 'A Campanha foi '+acao+' com sucesso!', true); 
 			} else {
 				ret_activ = false;
@@ -201,6 +227,4 @@ function activ_deactiv( id, status ) {
 			msg_general_error();
 		}
 	});
-
-	return ret_activ;
 }

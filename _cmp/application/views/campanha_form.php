@@ -1,5 +1,4 @@
 <?php
-
     $titulo = $valor = $texto_curto = "";
     $texto_longo = $ini_vigencia = $fim_vigencia = "";
     $status = ""; $foto = ""; $id = "";
@@ -8,14 +7,6 @@
         extract($data);
     }
 ?>
-
-<script src="../admin/js/jquery172.js"></script>
-<script src="../admin/js/jquery.maskedinput-1.1.4.pack.js"></script>
-<script src="../admin/js/jquery.price_format.1.7.min.js"></script>
-<script src="../admin/js/jquery-ui.js"></script>
-<script src="../admin/js/limitar_textarea.js"></script>
-<script src="../admin/js/modernizr-sitesja.js"></script>
-
  <div class="migalhadepao">
     <h1><i class="icon icon-folder-open"></i><span class="antes"><a href="<?php echo super_admin_url('listar')?>" title="Lista">Campanhas</a></span> <i class="icon icon-chevron-right"></i> Cadastrar</h1>
 </div>
@@ -31,7 +22,7 @@
         <p><label for="ini_vigencia">Vigência:</label><br />De: <input value="<?php echo $ini_vigencia?>" name="ini_vigencia" id="ini_vigencia" type="text" /></p>
         <p><label for="fim_vigencia">Até:</label><br /><input value="<?php echo $fim_vigencia?>" name="fim_vigencia" id="fim_vigencia" type="text" /></p>
         <p><label for="editor1">Descrição completa:</label><br /><textarea id="texto_longo" style="visibility: hidden; display: none;" class="ckeditor" maxlength="2000" name="texto_longo" title="Texto Completo"><?php echo $texto_longo?></textarea></p><hr />
-        <p style="margin-bottom:0.2em;">Foto principal. <span style="color:red">Largura obrigatória: 800px e largura 418px.</span> <br />Essa foto é usada na home e quando é compartilhado o projeto nas redes sociais.</p><span class="file-wrapper"><input title="Procure a foto" name="foto" id="imgfile" type="file" /><span class="button">Foto 800x418</span></span><input name="delfoto" id="delfoto" value="1" type="hidden" /><hr />
+        <p style="margin-bottom:0.2em;">Foto principal. <span style="color:red">Largura obrigatória: 800px e largura 418px.</span> <br />Essa foto é usada na home e quando é compartilhado o projeto nas redes sociais.</p><span class="file-wrapper"><input title="Procure a foto" name="foto" id="foto" type="file"/><span class="button">Foto 800x418</span></span><input name="delfoto" id="delfoto" value="1" type="hidden" /><hr />
 <!--         <p><label for="KeyWords">Palavras chaves:</label> (use vírgulas para separar as palavras).<br />
             <input maxlength="90" value="" name="KeyWords" id="KeyWords" type="text"><span id="charsLeft3">90</span> caracteres restantes.
         </p>
@@ -62,51 +53,48 @@
 
 <script type="text/javascript" src="../admin/editor/ckeditor.js" charset="utf-8"></script>
 <script type="text/javascript">
-$(document).ready( function() {
-    $("#ini_vigencia").datepicker({
-        dateFormat: 'dd/mm/yy',
-        showOtherMonths: true,
-        selectOtherMonths: true,
-        changeMonth: true,
-        changeYear: true,
-        /*showButtonPanel:true,
-        /*showOn: "button",
-        buttonImage: "calendario.png",
-        buttonImageOnly: true,*/
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
+$("#ini_vigencia").datepicker({
+    dateFormat: 'dd/mm/yy',
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: true,
+    changeYear: true,
+    /*showButtonPanel:true,
+    /*showOn: "button",
+    buttonImage: "calendario.png",
+    buttonImageOnly: true,*/
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+});
 
-    $("#fim_vigencia").datepicker({
-        dateFormat: 'dd/mm/yy',
-        showOtherMonths: true,
-        selectOtherMonths: true,
-        changeMonth: true,
-        changeYear: true,
-        /*showButtonPanel:true,
-        /*showOn: "button",
-        buttonImage: "calendario.png",
-        buttonImageOnly: true,*/
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
+$("#fim_vigencia").datepicker({
+    dateFormat: 'dd/mm/yy',
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: true,
+    changeYear: true,
+    /*showButtonPanel:true,
+    /*showOn: "button",
+    buttonImage: "calendario.png",
+    buttonImageOnly: true,*/
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+});
 
-    // $('#valor').mask("000.00");
-    $("#ini_vigencia").mask("99/99/9999");
-    $("#fim_vigencia").mask("99/99/9999");
-    $('#Resumo').limit('200','#charsLeft2');
+// $('#valor').mask("000.00");
+$("#ini_vigencia").mask("99/99/9999");
+$("#fim_vigencia").mask("99/99/9999");
+$('#Resumo').limit('200','#charsLeft2');
 
-    // $('#valor').priceFormat({
-    //     prefix: '',
-    //     centsSeparator: '.',
-    //     thousandsSeparator: ''
-    // });
-
+$('#valor').priceFormat({
+    prefix: '',
+    centsSeparator: '.',
+    thousandsSeparator: ''
 });
 </script>

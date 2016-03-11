@@ -3,7 +3,7 @@ session_start();
 
 $index = "index.php";
 $id        = isset($_GET['id'])          ? $_GET['id']   : '';
-$campanhas        = isset($_GET['campanhas'])          ? $_GET['campanhas']   : '';
+$campanhas = isset($_GET['campanhas'])   ? $_GET['campanhas']   : '';
 $subid     = isset($_GET['subid'])       ? $_GET['subid']   : '';
 $acaodepag = isset($_GET['acao'])        ? $_GET['acao'] : '';
 $root = "/superacao/";
@@ -34,18 +34,20 @@ $URLUsada      = $L_TituloSite['URL'];
 <title><?php echo $Title; ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Diogo Ordine" />
+
 <link href="imgs/favicon.png" rel="icon" sizes="64x64">
 <link href="estilos/estilos.css" rel="stylesheet" media="screen">
 <link href="estilos/responsive.css" rel="stylesheet" media="screen">
 <link href="estilos/jquery-ui.css" rel="stylesheet" media="screen">
-
 <link href="estilos/print.css" rel="stylesheet" media="print">
+
 <script src="js/jquery172.js"></script>
 <script src="js/jquery.maskedinput-1.1.4.pack.js"></script>
 <script src="js/jquery.price_format.1.7.min.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/limitar_textarea.js"></script>
 <script src="js/modernizr-sitesja.js"></script>
+
 </head>
 <body id="pesquisatopo">
 <div class="full">
@@ -113,13 +115,11 @@ $URLUsada      = $L_TituloSite['URL'];
                         if (file_exists("pags/$id.php")) {
                         include "pags/$id.php"; }
                     } else if (isset($_GET['campanhas'])) {
-                      $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].$root.'_cmp/campanha/'.urldecode($_GET['campanhas']) );
-                      echo $content;
+                        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].$root.'_cmp/campanha/'.urldecode($_GET['campanhas']) );
+                        echo $content;
                     }
         ?>
-    </section>
-    
-    
+    </section>  
     
 </div>
     <script>

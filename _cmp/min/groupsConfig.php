@@ -12,10 +12,10 @@
  **/
 
 return array(
-	'image_upload_js' => array('//js/jquery-1.10.2.min.js', '//js/ajaxfileupload.js', '//js/messi.min.js', '//js/site.js', '//js/jquery.fancybox.pack.js'),
+	'image_upload_js' => array('//js/ajaxfileupload.js', '//js/messi.min.js', '//js/site.js'),
 	'image_upload_css' => array('//css/messi.min.css'),
-	'image_view_js' => array('//js/site.js', '//js/jquery.fancybox.pack.js'),
-	'image_view_css' => array('//css/messi.min.css', '//css/jquery.fancybox.css'),
+	'image_view_js' => array('//js/site.js'),
+	'image_view_css' => array('//css/messi.min.css'),
 	'basic_js' => array('//js/messi.min.js', '//js/site.js'),
 	'basic_css' => array('//css/messi.min.css')
 );

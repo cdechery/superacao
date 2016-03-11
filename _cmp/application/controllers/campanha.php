@@ -2,9 +2,20 @@
 
 class Campanha extends MY_Controller { 
 
+	var $upload_config = NULL;
+	var $upload_exact_dimension = NULL;
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('campanha_model');
+
+		$this->upload_config = array();
+		$this->upload_config['upload_path'] = $this->params['upload']['path'];
+		$this->upload_config['allowed_types'] = implode("|",$this->params['image_settings']['allowed_types']);
+		$this->upload_config['max_size']  = $this->params['upload']['max_size'];
+		$this->upload_config['encrypt_name'] = TRUE;
+
+		$this->upload_exact_dimension = $this->params['upload']['exact_dimension'];
 	}
 
 	public function index() {
@@ -179,10 +190,10 @@ class Campanha extends MY_Controller {
 		$status = "";
 		$msg = "";
 
-		$input = $this->input->post(NULL, TRUE);
-
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+
+		$input = $this->input->post(NULL, TRUE);
 
 		$this->form_validation->set_error_delimiters('','</br>');
 
@@ -242,8 +253,32 @@ class Campanha extends MY_Controller {
 		$this->load->view('obrigado_campanha', array('titulo'=>$titulo) );
 	}
 
-	// public function get_images( $item_id ) {
-	// 	$this->load->model('image_model');
-	// 	return $this->image_model->get_item_images( $item_id );
-	// }
+	public function upload_imagem() {
+		$this->load->library('upload', $this->upload_config);
+
+		$cmp_id = $this->input->post('id');
+		// $thumbs = 	
+
+		$status = $msg = $file = "";
+
+		if ( !$this->upload->do_upload('foto') ) {
+			$status = "ERROR";
+			$msg = $this->upload->display_errors('','');
+		} else {
+			$upload_data = $this->upload->data();
+			if( $upload_data['image_height']!=$this->upload_exact_dimension['h'] || 
+				$upload_data['image_width']!=$this->upload_exact_dimension['w'] ) {
+				$status = "ERROR";
+				$msg = "Imagem com tamanho inválido, deve ser exatamente ".
+					$this->upload_exact_dimension['w']."x".$this->upload_exact_dimension['h'];
+			} else {
+				$status = "OK";
+				$msg = "";
+				$file = $upload_data['file_name'];
+			}
+		}
+
+		echo json_encode( array('status'=>$status, 'msg'=> $msg) );
+	}
+
 }

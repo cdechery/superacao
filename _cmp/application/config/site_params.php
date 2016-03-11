@@ -16,8 +16,9 @@ $config['site_params'] = array(
 	),
 	'max_item_imgs' => 3,
 	'upload' => array(
-		'path' => './files/',
-		'max_size' => (8*1024)
+		'path' => '../files/',
+		'max_size' => (8*1024),
+		'exact_dimension' => array('w'=>800, 'h'=>418)
 	),
 	'update_tool' => array('password'=>'###changethis###',
 		'skip_files'=>'' ),
