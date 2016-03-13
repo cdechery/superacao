@@ -122,9 +122,7 @@ $(function() {
 
 			var json = myParseJSON( data );
 			if( json.status=="OK" ) {
-				msg_success( json.msg, 'Campanha inserida com sucesso!', 
-					true, function() { go_to('listar'); } );
-
+				do_upload_avatar( json, json.new_id );
 			} else {
 				msg_error( json.msg );
 			}
@@ -135,18 +133,15 @@ $(function() {
 	$('#campanha_atualizar').submit(function(e) {
 		e.preventDefault();
 
-		do_upload_avatar();
-
-		// $.post($("#campanha_atualizar").attr("action"),
-		// 	$("#campanha_atualizar").serialize(), function(data) {
-		// 	var json = myParseJSON( data );
-		// 	if( json.status=="OK" ) {
-		// 		msg_success( json.msg, 'A Campanha foi atualizada com sucesso!', 
-		// 			true, function() { go_to('listar'); } );
-		// 	} else {
-		// 		msg_error( json.msg );
-		// 	}
-		// }).fail( function() { msg_general_error(); } );
+		$.post($("#campanha_atualizar").attr("action"),
+			$("#campanha_atualizar").serialize(), function(data) {
+			var json = myParseJSON( data );
+			if( json.status=="OK" ) {
+				do_upload_avatar( json, $('#id').val() );
+			} else {
+				msg_error( json.msg );
+			}
+		}).fail( function() { msg_general_error(); } );
 
 		return false;
 	});
@@ -168,30 +163,35 @@ $(function() {
 
 });
 
-var upload_result = false;
-function do_upload_avatar() {
+function do_upload_avatar( update_result, cmp_id ) {
+
+	// sem foto, nada a fazer
+	if( ! $('#foto').val() ) {
+		msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
+			true, function() { go_to('listar'); } );
+		return;
+	}
 
 	$.ajaxFileUpload({
-		url 		   : site_root +'campanha/upload_imagem/',
+		url 		   : site_root +'campanha/upload_imagem/' + cmp_id,
 		secureuri      : false,
 		fileElementId  :'foto',
 		contentType    : 'application/json; charset=utf-8',
 		dataType	   : 'json',
 		data           : {},
 		success  : function (data) {
-			if( data.status != 'OK') {
-				alert(data.msg);
-				upload_result = true;
+			if( data.status == "OK" ) {
+				msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
+					true, function() { go_to('listar'); } );
 			} else {
-				upload_result = false;
+				msg_error( data.msg );
 			}
 		},
 		error : function (data, status, e) {
-			upload_result = false;
+			msg_error( "Falha geral ao enviar a foto!" );
+			return false;
 		}
 	});
-
-	return upload_result;
 }
 
 function activ_deactiv( id, status, btn ) {
@@ -223,7 +223,6 @@ function activ_deactiv( id, status, btn ) {
 		},
 		error : function (data, status, e) {
 			ret = false;
-			console.log(data);
 			msg_general_error();
 		}
 	});

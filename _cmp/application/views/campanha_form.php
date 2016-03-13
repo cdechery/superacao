@@ -14,7 +14,7 @@
 
 <div class="conteudo">
     <form method="post" id="campanha_<?php echo $data['action']?>" action="<?php echo cmp_base_url( $data['action'] )?>" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?php echo $id?>">
+        <input type="hidden" name="id" id="id" value="<?php echo $id?>">
         <p><label for="Titulo">Título:</label><br /><input required maxlength="100" value="<?php echo $titulo?>" id="titulo" name="titulo" type="text" /></p>
         <p><label for="valor">Valor:</label><br /><input value="<?php echo $valor?>" name="valor" type="text" id="valor" maxlength="10" /></p>
         <p><label for="Resumo">Descrição curta:</label> (use &lt;br /&gt; para pular linha) e (&lt;strong&gt;texto&lt;/strong&gt; para dar negrito num texto).<br />

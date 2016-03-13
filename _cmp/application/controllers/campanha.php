@@ -253,11 +253,8 @@ class Campanha extends MY_Controller {
 		$this->load->view('obrigado_campanha', array('titulo'=>$titulo) );
 	}
 
-	public function upload_imagem() {
+	public function upload_imagem( $cmp_id ) {
 		$this->load->library('upload', $this->upload_config);
-
-		$cmp_id = $this->input->post('id');
-		// $thumbs = 	
 
 		$status = $msg = $file = "";
 
@@ -274,7 +271,12 @@ class Campanha extends MY_Controller {
 			} else {
 				$status = "OK";
 				$msg = "";
-				$file = $upload_data['file_name'];
+				$img_file = $upload_data['file_name'];
+
+				if( ! $this->campanha_model->update_foto( $cmp_id, $img_file ) ) {
+					$status = "ERROR";
+					$msg = "Não foi possível enviar a foto!";
+				}	
 			}
 		}
 

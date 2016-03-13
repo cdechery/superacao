@@ -146,23 +146,25 @@ class Campanha_model extends MY_Model {
 		return( $this->db->update($this->table, $upd_data, $where) );
 	}
 
-	public function update_foto($img_data, $cmp_id, $thumb_sizes = array() ) {
-		if( empty($img_data) || $cmp_id==0 ) {
+	public function update_foto($cmp_id, $file_name) {
+
+		if( empty($file_name) || $cmp_id==0 ) {
 			return false;
 		}
 
 		$upd_data = array(
-			'foto' => $img_data['file_name']
+			'foto' => $file_name
 		);
 
-		$this->load->helper('image_helper');
-		if( count($thumb_sizes) ) {
-			foreach( $thumb_sizes as $size ) {
-				create_square_cropped_thumb( $img_data['full_path'], $size );
-			}
-		}
+		// $this->load->helper('image_helper');
+		// if( count($thumb_sizes) ) {
+		// 	foreach( $thumb_sizes as $size ) {
+		// 		create_square_cropped_thumb( $img_data['full_path'], $size );
+		// 	}
+		// }
 
-		return( $this->db->update($this->table, $upd_data, array('id' => $user_id)) );
+		return( $this->db->update($this->table, 
+			$upd_data, array('id' => $cmp_id) ) );
 	}
 }
 ?>
