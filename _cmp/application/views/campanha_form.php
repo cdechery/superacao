@@ -22,7 +22,11 @@
         <p><label for="ini_vigencia">Vigência:</label><br />De: <input value="<?php echo $ini_vigencia?>" name="ini_vigencia" id="ini_vigencia" type="text" /></p>
         <p><label for="fim_vigencia">Até:</label><br /><input value="<?php echo $fim_vigencia?>" name="fim_vigencia" id="fim_vigencia" type="text" /></p>
         <p><label for="editor1">Descrição completa:</label><br /><textarea id="texto_longo" style="visibility: hidden; display: none;" class="ckeditor" maxlength="2000" name="texto_longo" title="Texto Completo"><?php echo $texto_longo?></textarea></p><hr />
-        <p style="margin-bottom:0.2em;">Foto principal. <span style="color:red">Largura obrigatória: 800px e largura 418px.</span> <br />Essa foto é usada na home e quando é compartilhado o projeto nas redes sociais.</p><span class="file-wrapper"><input title="Procure a foto" name="foto" id="foto" type="file"/><span class="button">Foto 800x418</span></span><input name="delfoto" id="delfoto" value="1" type="hidden" /><hr />
+        <p style="margin-bottom:0.2em;">Foto principal. <span style="color:red">Largura obrigatória: 800px e largura 418px.</span> <br />Essa foto é usada na home e quando é compartilhado o projeto nas redes sociais.</p><span class="file-wrapper"><input title="Procure a foto" name="foto" id="foto" type="file"/><span class="button">Foto 800x418</span></span>
+        <?php if( !empty($foto) ) {
+            echo "<br><img src='".img_url($foto, 'S')."'>";
+        } ?>
+        <hr />
 <!--         <p><label for="KeyWords">Palavras chaves:</label> (use vírgulas para separar as palavras).<br />
             <input maxlength="90" value="" name="KeyWords" id="KeyWords" type="text"><span id="charsLeft3">90</span> caracteres restantes.
         </p>

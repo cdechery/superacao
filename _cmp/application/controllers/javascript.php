@@ -12,6 +12,8 @@ class Javascript extends CI_Controller {
 		$params = $this->config->item('site_params');
 
 		$output_js =  "var site_root='".base_url()."';\n";
+
+		$output_js =  "var upload_path='".$params['upload']['path']."';\n";
 		$output_js .= "var site_charset='".$this->config->item('charset')."';\n";
 
 		$i = rand(0, 2); $tokens = $params['admin_tokens'];

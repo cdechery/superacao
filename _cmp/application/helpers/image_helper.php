@@ -58,8 +58,8 @@ function create_thumb($imgFullPath, $type, $size) {
         $newW = intval( $width * $newH / $height);
     }
 
-    $dest_x = intval(($desired_w - $newW) / 2);
-    $dest_y = intval(($desired_h - $newW) / 2);
+    $dest_x = intval( ($desired_w - $newW) / 2 );
+    $dest_y = intval( ($desired_h - $newH) / 2 );
 
 	$tmp_img = imagecreatetruecolor( $desired_w, $desired_h );
 	imagecopyresampled( $tmp_img, $img , 0, 0, $dest_x , $dest_y, 
