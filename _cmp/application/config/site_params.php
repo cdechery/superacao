@@ -10,9 +10,9 @@ $config['site_params'] = array(
 	'erro_acesso' => 'Acesso negado',
 	'titulo_site' => 'Instituto SuperAÇÃO',
 	'image_settings' => array(
-		'thumb_sizes' => array(40, 60, 80, 120, 200), // size of thumbs to generate
+		'thumbs' => array('S' => '130x130', 'P'=>'480x250',
+			'M'=>'60x60', 'Z'=>'480x250', 'default'=>'80x80'),
 		'allowed_types' => array('jpeg', 'jpg', 'png'),
-		'min_image_size' => '200'
 	),
 	'max_item_imgs' => 3,
 	'upload' => array(

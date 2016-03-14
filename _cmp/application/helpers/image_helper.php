@@ -5,63 +5,32 @@
 	All functions regarding Imagem manipulation goes here
 */
 
-function add_thumb_suffix(&$data, $key, $thumb_size) {
-	$data->filename = thumb_filename( $data->filename, $thumb_size );
-}
-
-function thumb_filename($filename, $thumbSize) {
-	$newFileArray = pathinfo( $filename );
-	return $newFileArray['filename']."_t".$thumbSize.".jpg";
-	
-}
-
-function img_url($image) {
+function img_url( $image, $thumb_type = NULL ) {
 	$CI =& get_instance();
-	$path = $CI->config->item('base_img_url');
+	$params = $CI->config->item('site_params');
 
-	if( $path ) {
-		return $path . $image;
+	$upload_path = $params['upload']['path'];
+
+	$url = "";
+
+	if( $thumb_type != NULL ) {
+		list($name, $ext) = explode(".", $image);
+		$url = $upload_path . $name."_".$thumb_type.".".$ext;
 	} else {
-		return base_url('images/'.$image);
+		$url = $upload_path . $image;
 	}
+
+	return $url;
 }
 
-function user_img_url($image) {
-	$CI =& get_instance();
-	$path = $CI->config->item('base_user_img_url');
+function create_thumb($imgFullPath, $type, $size) {
 
-	if( $path ) {
-		return $path . $image;
-	} else {
-		$params = $CI->config->item('site_params');
-		$dir = $params['upload']['path'];
-		return base_url($dir . $image);
-	}
-}
-
-function user_avatar($avatar, $size) {
-	$default = 'default_avatar_'.$size.'.gif';
-	if( empty($avatar) ) {
-		return img_url($default);
-	} else {
-		return user_img_url( thumb_filename($avatar, $size) );
-	}
-}
-
-function item_image($img, $size) {
-	$default = 'default_item_img_'.$size.'.png';
-	if( empty($img) ) {
-		return img_url( $default );
-	} else {
-		return user_img_url( thumb_filename($img, $size) );
-	}
-}
-
-function create_square_cropped_thumb($imgFullPath, $size) {
+	$desired_w = $desired_h = 0;
+	list($desired_w, $desired_h) = explode("x", $size);
 
 	// generate thumb
-	$type = exif_imagetype( $imgFullPath );
-	switch( $type ) {
+	$img_type = exif_imagetype( $imgFullPath );
+	switch( $img_type ) {
 		case IMAGETYPE_JPEG:
 			$img = imagecreatefromjpeg( $imgFullPath );
 			break;
@@ -81,25 +50,24 @@ function create_square_cropped_thumb($imgFullPath, $size) {
 	$newH = $newW = 0;
 	$limiting_dim = 0;
 
-	/* Calculate the New Image Dimensions */
-	if( $height > $width){
-		/* Portrait */
-		$newW = $size;
-		$newH = $height * ( $size / $newW );
-		$limiting_dim = $width;
-	}else{
-		/* Landscape */
-		$newH = $size;
-		$newW = $width * ( $size / $newH );
-		$limiting_dim = $height;
-	}
+	if ($width > $height) {
+        $newW = $desired_w;
+        $newH = intval( $height * $newW / $width);
+    } else {
+        $newH = $desired_h;
+        $newW = intval( $width * $newH / $height);
+    }
 
-	$tmp_img = imagecreatetruecolor( $size, $size );
-	imagecopyresampled( $tmp_img, $img , 0 , 0 , ($width-$limiting_dim )/2 , ( $height-$limiting_dim )/2 , $size , $size , $limiting_dim , $limiting_dim );
+    $dest_x = intval(($desired_w - $newW) / 2);
+    $dest_y = intval(($desired_h - $newW) / 2);
+
+	$tmp_img = imagecreatetruecolor( $desired_w, $desired_h );
+	imagecopyresampled( $tmp_img, $img , 0, 0, $dest_x , $dest_y, 
+		$desired_w , $desired_h , $width , $height );
 
 	// novo nome
 	$newFileArray = pathinfo( $imgFullPath );
-	$thmbFileName = $newFileArray['dirname']."/".$newFileArray['filename']."_t".$size.".jpg";
+	$thmbFileName = $newFileArray['dirname']."/".$newFileArray['filename']."_".$type.".jpg";
 
 	imagejpeg( $tmp_img, $thmbFileName );
 

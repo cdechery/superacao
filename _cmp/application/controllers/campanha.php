@@ -271,9 +271,8 @@ class Campanha extends MY_Controller {
 			} else {
 				$status = "OK";
 				$msg = "";
-				$img_file = $upload_data['file_name'];
 
-				if( ! $this->campanha_model->update_foto( $cmp_id, $img_file ) ) {
+				if( ! $this->campanha_model->update_foto( $cmp_id, $upload_data ) ) {
 					$status = "ERROR";
 					$msg = "Não foi possível enviar a foto!";
 				}	
