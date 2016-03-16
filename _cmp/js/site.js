@@ -167,7 +167,7 @@ function do_upload_avatar( update_result, cmp_id ) {
 
 	// sem foto, nada a fazer
 	if( ! $('#foto').val() ) {
-		msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
+		msg_success( update_result.msg, 'Atualização', 
 			true, function() { go_to('listar'); } );
 		return;
 	}
@@ -181,7 +181,7 @@ function do_upload_avatar( update_result, cmp_id ) {
 		data           : {},
 		success  : function (data) {
 			if( data.status == "OK" ) {
-				msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
+				msg_success( update_result.msg, 'Atualização', 
 					true, function() { go_to('listar'); } );
 			} else {
 				msg_error( data.msg );
