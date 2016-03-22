@@ -119,10 +119,19 @@ $(function() {
 
 		$.post($("#campanha_inserir").attr("action"),
 			$("#campanha_inserir").serialize(), function(data) {
-
 			var json = myParseJSON( data );
+			var msg = json.msg;
 			if( json.status=="OK" ) {
-				do_upload_avatar( json, json.new_id );
+				do_upload_avatar( json.cmp_id )
+				.then( function() {
+					msg_success( 'A Campanha foi inserida com sucesso!',
+						'Inserir', 
+						true, function() { go_to('listar'); } ); 
+				})
+				.catch( function(data) {
+					msg = data.msg
+					msg_error( msg );
+				});
 			} else {
 				msg_error( json.msg );
 			}
@@ -136,8 +145,17 @@ $(function() {
 		$.post($("#campanha_atualizar").attr("action"),
 			$("#campanha_atualizar").serialize(), function(data) {
 			var json = myParseJSON( data );
+			var msg = json.msg;
 			if( json.status=="OK" ) {
-				do_upload_avatar( json, $('#id').val() );
+				do_upload_avatar( $('#id').val() )
+				.then( function() {
+					msg_success( 'A Campanha foi atualizada com sucesso!',
+						'Atualização', 
+						true, function() { go_to('listar'); } );				})
+				.catch( function(data) {
+					msg = data.msg
+					msg_error( msg );
+				});
 			} else {
 				msg_error( json.msg );
 			}
@@ -163,34 +181,33 @@ $(function() {
 
 });
 
-function do_upload_avatar( update_result, cmp_id ) {
+function do_upload_avatar( cmp_id ) {
 
-	// sem foto, nada a fazer
-	if( ! $('#foto').val() ) {
-		msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
-			true, function() { go_to('listar'); } );
-		return;
-	}
+	return new Promise( function(resolve, reject) {
 
-	$.ajaxFileUpload({
-		url 		   : site_root +'campanha/upload_imagem/' + cmp_id,
-		secureuri      : false,
-		fileElementId  :'foto',
-		contentType    : 'application/json; charset=utf-8',
-		dataType	   : 'json',
-		data           : {},
-		success  : function (data) {
-			if( data.status == "OK" ) {
-				msg_success( 'A Campanha foi atualizada com sucesso!', 'Atualização', 
-					true, function() { go_to('listar'); } );
-			} else {
-				msg_error( data.msg );
-			}
-		},
-		error : function (data, status, e) {
-			msg_error( "Falha geral ao enviar a foto!" );
-			return false;
+		// sem foto, nada a fazer
+		if( ! $('#foto').val() ) {
+			resolve();
 		}
+
+		$.ajaxFileUpload({
+			url 		   : site_root +'campanha/upload_imagem/' + cmp_id,
+			secureuri      : false,
+			fileElementId  :'foto',
+			contentType    : 'application/json; charset=utf-8',
+			dataType	   : 'json',
+			data           : {},
+			success  : function (data) {
+				if( data.status == "OK" ) {
+					resolve();
+				} else {
+					reject(data);
+				}
+			},
+			error : function (data, status, e) {
+				reject(data);
+			}
+		});
 	});
 }
 
