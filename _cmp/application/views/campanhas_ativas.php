@@ -1,19 +1,8 @@
-<script type="text/javascript">
-window.onload = function() {
-    if (parent) {
-        var oHead = document.getElementsByTagName("head")[0];
-        var arrStyleSheets = parent.document.getElementsByTagName("style");
-        for (var i = 0; i < arrStyleSheets.length; i++)
-            oHead.appendChild(arrStyleSheets[i].cloneNode(true));
-    }
-}
-</script>
 <section class="interna">
 <?php
-    if( empty($campanhas) ) {
+    if( ! $campanhas->result()  ) {
 ?>
     <h3>Não há Campanhas ativas nesse momento</h3>
-    <div class="finaliza"></div>
 <?php
         return;
     }
@@ -29,14 +18,14 @@ window.onload = function() {
     <h1 class="left-center tit">Campanhas</h1>
     <hr class="internos" />
 <?php
-    foreach( $campanhas as $cmp ) {
+    foreach( $campanhas->result() as $cmp ) {
 ?>
     <div class="SJ-grid3 SJ-grid3-50 SJ-MT-30">
         <div class="SJ-grid4-Destaque SJ-grid3-Destaque">
-            <a href="#" title=""><img src="imgs/cmp_sem_imagem.jpg" width="480" height="250"/></a>
-            <h2><a href="#" class="" title=""><?php echo $cmp['data']['titulo']?></a></h2>
-            <p><?php echo $cmp['data']['texto_curto']?><br><b>R$ <?php echo str_replace(".", ",", $cmp['data']['valor'])?></b></p>
-             <p><a href="" title="" class="btn-azul">Comprar</a></p>
+            <a href="#" title=""><img src="<?php echo img_url($cmp->foto, 'P')?>"/></a>
+            <h2><a href="#" class="" title=""><?php echo $cmp->titulo?></a></h2>
+            <p><?php echo $cmp->texto_curto?><br><b>R$ <?php echo str_replace(".", ",", $cmp->valor)?></b></p>
+             <p><a href="<?php echo main_url('visualizar/'.$cmp->id)?>" title="" class="btn-azul">Comprar</a></p>
         </div>
     </div>
 <?php  

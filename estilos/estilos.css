@@ -656,6 +656,151 @@ a.btn-azul:hover, a.btn-azul:active {
     padding:0 8px;
 }
 
+/*Estilos da Campanha Aberta */
+.SJ-MT-40 {margin-top: 40px !important;}
+.SJ-PB-60 {padding-bottom:60px !important;}
+.SJ-grid70 {
+    display:block;
+    width:800px;
+    margin:0 auto !important;
+}
+
+.SJ-dest-grid {
+    position: relative;
+    display: block;
+    min-height: 460px;
+}
+
+.SJ-dest-grid:hover .SJ-pagseguro-dest-grid {
+    opacity: 1;
+}
+
+.SJ-dest-grid:hover img.SJ-img-dest-grid {
+    opacity: 0;
+}
+
+.SJ-dest-grid:hover .SJ-tit-dest-grid {
+    opacity: 0;
+}
+
+.SJ-dest-grid:hover .SJ-dados-dest-grid {
+    background: #186742;
+    padding:187px 0;
+}
+
+img.SJ-img-dest-grid {
+    position:absolute;
+    border-radius: 4px;
+    top: 0;
+    border: 1px solid #fff;
+    box-shadow: 0px 14px 25px -10px #B4B4B4;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.SJ-tit-dest-grid {
+    position: absolute;
+    bottom:98px;
+    padding:26px 2%;
+    background: rgba(255,255,255,0.6);
+    width:96%;
+    font-size: 2.6em;
+    color:#333;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px #fff;
+    border-top:1px solid #fff;
+    border-bottom:1px solid #fff;
+}
+
+.SJ-dados-dest-grid {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    width: 99.8%;
+    bottom:54px;
+    padding: 7px 0;
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+}
+
+.SJ-valor-dest-grid {
+    display:inline-block;
+    width:16%;
+    vertical-align: middle;
+    text-align: left;
+    padding:0 3%;
+    color:#fff;
+    text-shadow:1px 1px 3px #000;
+    font-size: 2em;
+}
+.SJ-data-dest-grid {
+    display:inline-block;
+    width:42%;
+    vertical-align: middle;
+    text-align: center;
+    color:#fff;
+    text-shadow:1px 1px 3px #000;
+    font-size: 2em;
+}
+.SJ-pagseguro-dest-grid {
+    display:inline-block;
+    width:29%;
+    vertical-align: middle;
+    text-align: right;
+    padding:0 3%;
+    color:#fff;
+    text-shadow:1px 1px 3px #000;
+    
+}
+
+.SJ-pagseguro-dest-grid a {
+    display: block;
+    margin-bottom: -2px;
+}
+
+.SJ-paralax-pagseguro {
+    background:#186742;
+    border-top:1px solid #0E3A25;
+    border-bottom:1px solid #0E3A25;
+    padding:70px 0;
+    margin:0 0 30px 0;
+}
+
+.SJ-paralax-pagseguro:hover p  {
+    color:#186742;
+    text-shadow: 1px 1px 3px #fff;
+}
+
+.SJ-paralax-pagseguro:hover {
+    background:#D8D8D8;
+    border-top:1px solid #fff;
+    border-bottom:1px solid #fff;
+}
+
+.SJ-back-campanhas{
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin:100px 0;
+    clear: both;
+}
+.SJ-back-campanhas a:link, .SJ-back-campanhas a:visited {
+    font-size:1.4em;
+    font-family: 'Open Sans';
+    color:#4E5F4B;
+    background: transparent;
+    border:1px solid #667B64;
+    border-radius: 8px;
+    padding:10px 18px;
+    text-decoration: none;
+}
+.SJ-back-campanhas a:hover, .SJ-back-campanhas a:active {
+    color:#fff;
+    background: #FEB00E;
+    border:1px solid #FEB00E;
+    padding:18px;
+}
 
 /* Estilos do FOOTER */
 .isa{
@@ -833,7 +978,8 @@ footer {padding:0; margin: 0;}
 .membros {
     display: inline-block;
     vertical-align: top;
-    width:15%;
+    /* width:15%;  valor para 5 colunas*/
+    width:28%; /*valor para 3 colunas */
     padding:1.9%;
     margin-bottom:1.5em;
     opacity: 0.8;

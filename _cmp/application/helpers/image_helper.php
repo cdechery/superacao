@@ -9,15 +9,15 @@ function img_url( $image, $thumb_type = NULL ) {
 	$CI =& get_instance();
 	$params = $CI->config->item('site_params');
 
-	$upload_path = $params['upload']['path'];
+	$img_path = $params['site_root'] . "files/";
 
 	$url = "";
 
 	if( $thumb_type != NULL ) {
 		list($name, $ext) = explode(".", $image);
-		$url = $upload_path . $name."_".$thumb_type.".".$ext;
+		$url = $img_path . $name."_".$thumb_type.".".$ext;
 	} else {
-		$url = $upload_path . $image;
+		$url = $img_path . $image;
 	}
 
 	return $url;

@@ -36,21 +36,16 @@ class Campanha extends MY_Controller {
 
 		$cmp_data['pagseguro_form'] = $pagseguro_form;
 
+		$this->basic_js_css();
 		$this->load->view('campanha_view', array('data'=>$cmp_data) );
 	}
 
 	// PUBLICO
 	public function ativas() {
-		$this->basic_js_css();
-
 		$cmp_ativas = $this->campanha_model->get_active();
 
-		$campanhas = array();
-		foreach( $cmp_ativas->result_array() as $row ) {
-			$campanhas[] = array( 'data'=>$row  );
-		}
-
-		$this->load->view('campanhas_ativas', array('campanhas'=>$campanhas) );
+		$this->basic_js_css();
+		$this->load->view('campanhas_ativas', array('campanhas'=>$cmp_ativas) );
 	}
 
 	// ADMIN

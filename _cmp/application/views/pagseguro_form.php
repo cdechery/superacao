@@ -16,7 +16,7 @@ action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html">
         <!-- <input name="reference" type="hidden" value="REF12346">   -->
   
         <!-- submit do form (obrigatório) -->  
-        <input alt="Pague com PagSeguro" class="btn-azul" name="submit" type="image" src="" value="Comprar"/>  
+        <input alt="Pague com PagSeguro" class="btn-azul" name="submit" type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif" value="Comprar"/>  
           <!-- https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif -->
 </form>  
 <!-- FIM FORM PagSeguro -->  

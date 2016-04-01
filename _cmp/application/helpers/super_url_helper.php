@@ -2,6 +2,10 @@
 /*
 	SuperaAÇÃO Admin Helper - Custom Helper
 */
+	function main_url( $url ) {
+		return base_url( '../campanhas/' . $url );
+	}
+
 	function cmp_base_url( $url ) {
 		$CI =& get_instance();
 		$params = $CI->config->item('site_params');

@@ -87,6 +87,7 @@
     $class15    = $pagina == 'abrangencia'     ? 'ativado_quemsomos' : '' ;
     $class16    = $pagina == 'assembleia'      ? 'ativado_quemsomos' : '' ;
 
+    if( $isCampanhas ) { $pagina = "campanhas"; }
     
     switch ($pagina){
         case 'home':
@@ -126,7 +127,7 @@
         break;
     
      case 'erro':
-                    $paginatitulo = 'Ops: essa página não existe | ';
+         $paginatitulo = 'Ops: essa página não existe | ';
          $Descricao_Site_Config = $Descricao_Site_Config;
             $FotoSocialSEO         = $FotoSocialSEO;
                 break;
@@ -353,7 +354,9 @@ echo '<script type="text/javascript" src="'.$UrlAtual.'js/modernizr-sitesja.js">
     
 <?php
     if( $isCampanhas ) {
-        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.urldecode( $atual[1] ) );
+        array_shift( $atual ); 
+        $cmp_url = implode("/", $atual);
+        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.$cmp_url );
         echo $content;
     } else {
         require("{$pasta}/{$pagina}.php");

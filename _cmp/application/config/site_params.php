@@ -6,6 +6,7 @@
 */
 
 $config['site_params'] = array(
+	'site_root' => '/superacao',
 	'erro_generico' => 'Ocorreu um erro inesperado',
 	'erro_acesso' => 'Acesso negado',
 	'titulo_site' => 'Instituto SuperAÇÃO',
@@ -14,7 +15,6 @@ $config['site_params'] = array(
 			'M'=>'60x60', 'Z'=>'480x250', 'default'=>'80x80'),
 		'allowed_types' => array('jpeg', 'jpg', 'png'),
 	),
-	'max_item_imgs' => 3,
 	'upload' => array(
 		'path' => '../files/',
 		'max_size' => (8*1024),
