@@ -28,9 +28,14 @@ class Pagseguro_model extends MY_Model {
 		if( !$data ) {
 			$status = "ERROR";
 		} else {
-			$status = "OK";
 			$xml_data = simplexml_load_string($data);
-			// var_dump($xml_data); die;
+			$sender = $xml_data->sender; 
+			if( !empty($sender) ) {
+				$email = $sender->email;
+				$status = "OK";
+			} else {
+				$status = "ERROR";
+			}
 		}
 
 		return array("status"=>$status, "data"=>$xml_data);

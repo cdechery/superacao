@@ -28,11 +28,10 @@ class Pagseguro extends MY_Controller {
 				$id_trans );
 
 			if( $ret ) {
-				echo "Obrigado!!";
-				// TODO (view de sucesso)
+				redirect("../pagseguro-ok");
 			}
 		} else {
-			echo "ERRO no PagSeguro (TODO: view de erro)";
+			redirect("../pagseguro-fail");
 		}
 	}
 }

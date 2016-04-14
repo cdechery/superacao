@@ -19,9 +19,7 @@
                             <div class="SJ-dados-dest-grid">
                                 <p class="SJ-valor-dest-grid">R$ <?php echo str_replace( ".", ",", $data['valor'])?></p>
                                 <p class="SJ-data-dest-grid">De <?php echo $data['ini_vigencia']?> até <?php echo $data['fim_vigencia']?></p>
-                                <p class="SJ-pagseguro-dest-grid">
 									<?php echo $data['pagseguro_form']?>
-                                </p>
                             </div>
                             
                         </div>
@@ -51,7 +49,7 @@
 
 
         <div class="SJ-back-campanhas">
-            <a href="#" class="SJ-botao-back">Ver todas as Campanhas</a>
+            <a href="../ativas" class="SJ-botao-back">Ver todas as Campanhas</a>
         </div>
 
 

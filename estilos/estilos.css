@@ -702,6 +702,7 @@ img.SJ-img-dest-grid {
 .SJ-tit-dest-grid {
     position: absolute;
     bottom:98px;
+    bottom:123px;
     padding:26px 2%;
     background: rgba(255,255,255,0.6);
     width:96%;
@@ -722,6 +723,16 @@ img.SJ-img-dest-grid {
     padding: 7px 0;
     border-left:1px solid #fff;
     border-right:1px solid #fff;
+}
+
+.SJ-dados-dest-grid form, .SJ-paralax-pagseguro form {
+    display: inline-block;
+    width: 29%;
+    vertical-align: middle;
+    text-align: right;
+    padding: 0px 3%;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 
 .SJ-valor-dest-grid {
@@ -1332,7 +1343,98 @@ table.tabelaAplicacoes td li, table.tabelaAplicacoes td u {
   width:15px;
 }
 
+.mensagens {
+    position: relative;
+    max-width:505px;
+    border-radius: 16px;
+    margin:60px auto;
+    padding:20px 40px;
+    min-height: 140px;
+}
 
+.mensagens a:link, .mensagens a:visited {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color:#fff;
+    font-size: 16px;
+    background:  #FEB92D;
+    padding:5px 0 7px 0;
+    border-radius: 0 0 16px 16px;
+}
+
+.mensagens a:hover, .mensagens a:active {
+    background: #FFF4DF;
+    color:#FEAC01;
+
+    }
+
+.msn-ok {
+    background:#E8FFF4;
+    box-shadow: 0px 0px 6px #ECECEC;
+    
+}
+
+.msn-fail {
+    background: #FFF4DF;
+    box-shadow: 0px 0px 6px #fff;
+}
+
+.mensagens h1 {
+    font-size:30px;
+    color:#00A859;
+    font-family: 'Open Sans';
+    margin:0;
+    padding:0;
+    font-weight: normal;
+    text-align: right;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+
+.mensagens p.obs-info {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size:18px;
+    font-family: 'Open Sans';
+    
+}
+
+.msn-ok h1 {
+    background: url('../imgs/msn-ok.png') no-repeat;
+    padding:10px 0 10px 88px;
+}
+.msn-fail h1 {
+    background: url('../imgs/msn-fail.png') no-repeat;
+    padding:10px 0 10px 88px;
+    color:#F1A401;
+}
+
+.msn-ok p.obs-info {
+    background:#00A859;
+    color:#fff;
+    border-radius: 0 0 16px 16px;
+    padding:4px 0 6px 0;
+}
+
+.msn-fail p.obs-info {
+    background:#FEB92D;
+    color:#fff;
+    border-radius: 0 0 16px 16px;
+    padding:0;
+}
+
+.msn-fail span.sub-info {
+    font-size:16px;
+    color:#F3A501;
+}
+.msn-ok span.sub-info {
+    font-size:16px;
+    color:#00A859;
+}
 
 
 * ::-moz-selection{

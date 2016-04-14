@@ -4,7 +4,7 @@
     $host      = $_SERVER['HTTP_HOST'];
 
     //$UrlAtual  = $protocolo.'://'.$host.'/superacao/';
-    // $UrlAtual  = $protocolo.'://'.$host.'/www/sites/institutosuperacao/site-novo/';
+     //$UrlAtual  = $protocolo.'://'.$host.'/www/sites/institutosuperacao/site-novo/';
     $UrlAtual  = $protocolo.'://'.$host.'/superacao/';
 
     $index      = "index.php";
@@ -14,31 +14,30 @@
 
     $atual      = (isset($_GET['secao'])) ? $_GET['secao'] : 'home';
 
+    $permissao  = array('home', 'doe', 'projetos', 'novidades', 'assembleia', 'abrangencia', 'quemsomos', 'contatos', 'erro' , 'pagseguro-ok', 'pagseguro-fail');
+    $pasta      = 'pags';
+
     $isCampanhas = ( strstr($atual, "campanhas")!=FALSE );
 
-    $permissao  = array('home', 'doe', 'projetos', 'novidades', 'assembleia', 'abrangencia', 'quemsomos', 'contatos', 'erro');
-    $pasta	    = 'pags';
-        if(substr_count($atual, '/') > 0) {
-                $atual  = explode('/', $atual);
-                $pagina = (file_exists("{$pasta}/".$atual[0].'.php') && in_array($atual[0], $permissao)) ? $atual[0] : 'erro';
-                $nivel1 = isset($atual[1]) && !empty($atual[1])  ? urlencode(retiraCaracteres($atual[1])) : '';
-                $nivel2 = isset($atual[2]) && !empty($atual[2])  ? urlencode(retiraCaracteres($atual[2])) : '';
-                $nivel3 = isset($atual[3]) && !empty($atual[3])  ? urlencode(retiraCaracteres($atual[3])) : '';
-	    }else{
-                $pagina = (file_exists("{$pasta}/".$atual.'.php') && in_array($atual, $permissao)) ? $atual : 'erro';
-                $nivel1 = '';
-                $nivel2 = '';
-                $nivel3 = '';
-            }
-             
-            if ($atual[0] != '' OR $atual != 0) {
-                $secao  = $atual[0];
-	    }else{
-                $secao = $atual;
-	    }
-            
-            
-            
+    if(substr_count($atual, '/') > 0) {
+            $atual  = explode('/', $atual);
+            $pagina = (file_exists("{$pasta}/".$atual[0].'.php') && in_array($atual[0], $permissao)) ? $atual[0] : 'erro';
+            $nivel1 = isset($atual[1]) && !empty($atual[1])  ? urlencode(retiraCaracteres($atual[1])) : '';
+            $nivel2 = isset($atual[2]) && !empty($atual[2])  ? urlencode(retiraCaracteres($atual[2])) : '';
+            $nivel3 = isset($atual[3]) && !empty($atual[3])  ? urlencode(retiraCaracteres($atual[3])) : '';
+    }else{
+            $pagina = (file_exists("{$pasta}/".$atual.'.php') && in_array($atual, $permissao)) ? $atual : 'erro';
+            $nivel1 = '';
+            $nivel2 = '';
+            $nivel3 = '';
+        }
+         
+        if ($atual[0] != '' OR $atual != 0) {
+            $secao  = $atual[0];
+    }else{
+            $secao = $atual;
+    }
+
     $Dados_Config           = mysql_query('SELECT * FROM config WHERE ID="1" AND Ativo="S"') or die(ErroBanco(130));
     $Lista_Config           = mysql_fetch_array($Dados_Config);
     $EMail_Config           = $Lista_Config['EMail'];
@@ -127,7 +126,7 @@
         break;
     
      case 'erro':
-         $paginatitulo = 'Ops: essa página não existe | ';
+                    $paginatitulo = 'Ops: essa página não existe | ';
          $Descricao_Site_Config = $Descricao_Site_Config;
             $FotoSocialSEO         = $FotoSocialSEO;
                 break;
@@ -354,9 +353,21 @@ echo '<script type="text/javascript" src="'.$UrlAtual.'js/modernizr-sitesja.js">
     
 <?php
     if( $isCampanhas ) {
-        array_shift( $atual ); 
-        $cmp_url = implode("/", $atual);
-        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/campanha/'.$cmp_url );
+        $camp_url = $_REQUEST['secao'];
+        $camp_url = explode("/", $camp_url);
+
+        $ctrl = array_shift( $camp_url );
+        $ctrl = ($ctrl=="pagseguro")?"pagseguro":"campanha";
+
+        $nova_url = $ctrl ."/". implode("/", $camp_url);
+
+        if( count($_REQUEST)>1 ) {
+            array_shift( $_REQUEST );
+            $nova_url .= "?".http_build_query( $_REQUEST );
+        }
+
+        $content = file_get_contents( 'http://'.$_SERVER['SERVER_NAME'].'/superacao/_cmp/'.$nova_url );
+
         echo $content;
     } else {
         require("{$pasta}/{$pagina}.php");

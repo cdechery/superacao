@@ -5,10 +5,10 @@
 			<div class="back_news" style="padding-bottom:60px;">
         	<div class="finaliza" style="height: 10px;"></div>
                 
-                <div class="mensagens msn-fail">
-                	<h1>Erro, essa página não existe!<br /><span class="sub-info">Lamentamos o transtorno</span></h1>
+                <div class="mensagens msn-ok">
+                	<h1>Transação realizada com exito!<br /><span class="sub-info">Gratos pela colaboração</span></h1>
                 	
-                	<p class="obs-info" style="padding:4px 0 6px 0;">Navegue pelo menu acima!</p>
+                	<p class="obs-info">Foi enviado um e-mail em sua caixa postal</p>
                 </div>
             </div>
         </div>

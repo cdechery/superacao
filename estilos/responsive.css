@@ -1554,6 +1554,11 @@ img.SJ-img-dest-grid {
     clear: both;
 }
 
+.SJ-dados-dest-grid form, .SJ-paralax-pagseguro form {
+    width: 100%;
+    text-align: center;
+    padding: 0%;
+}
 
 }
 
@@ -1561,4 +1566,13 @@ img.SJ-img-dest-grid {
 .SJ-PB-60 {padding-bottom:20px !important;}
 .SJ-grid70 {width:84%;}
 
+}
+
+@media screen and (max-width: 400px){
+    .msn-fail h1, .msn-ok h1 {
+        padding: 68px 0 38px 0px;
+        background-position: top center;
+        text-align: center !important;
+        line-height: 26px;
+    }
 }

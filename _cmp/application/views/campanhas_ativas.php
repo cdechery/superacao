@@ -2,8 +2,17 @@
 <?php
     if( ! $campanhas->result()  ) {
 ?>
-    <h3>Não há Campanhas ativas nesse momento</h3>
-<?php
+    <div class="wrapfull">
+        <div class="wrap30">
+            <div class="finaliza" style="height: 20px;"></div>
+            <div class="back_news" style="padding-bottom:60px;">
+            <div class="finaliza" style="height: 10px;"></div>
+                <div class="mensagens msn-fail">
+                    <h1>Não há Campanhas Ativas nesse momento<br /><span class="sub-info">Volte mais tarde, teremos novidades.</span></h1>
+                </div>
+            </div>
+        </div>
+    </div><?php
         return;
     }
 ?>

@@ -25,7 +25,9 @@ class Campanha extends MY_Controller {
 	// PUBLICO
 	public function visualizar( $cmp_id ) {
 		$cmp_data = $this->campanha_model->get_data( $cmp_id );
-		// $img_data = $this->get_images( $cmp_id );
+		if( !$cmp_data ) {
+			redirect('../nao-existe');
+		}
 
 		$ps_data = array_merge(
 			array('pagseguro_email'=>$this->params['pagseguro_email']),
