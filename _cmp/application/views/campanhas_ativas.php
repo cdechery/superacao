@@ -1,4 +1,8 @@
 <section class="interna">
+<div class="wrapfull  ">
+<div class="wrap30 ">
+<div class="finaliza"></div>
+
 <?php
     if( ! $campanhas->result()  ) {
 ?>
@@ -12,22 +16,17 @@
                 </div>
             </div>
         </div>
-    </div><?php
-        return;
-    }
+    </div>
+<?php
+    } else {
 ?>
-<div class="wrapfull  ">
-<div class="wrap30 ">
-<div class="finaliza"></div>
-
-
 <div class="resumos back_news">
 
 <div class="SJ-row">
-    <h1 class="left-center tit">Campanhas</h1>
     <hr class="internos" />
+    <h1 class="left-center tit">Campanhas</h1>
 <?php
-    foreach( $campanhas->result() as $cmp ) {
+        foreach( $campanhas->result() as $cmp ) {
 ?>
     <div class="SJ-grid3 SJ-grid3-50 SJ-MT-30">
         <div class="SJ-grid4-Destaque SJ-grid3-Destaque">
@@ -38,10 +37,13 @@
         </div>
     </div>
 <?php  
-    } //foreach
+        } //foreach
 ?>
 </div>
 </div>
-</div>
-</div>
+<?php
+    } 
+?>
+<?php
+?>
 </section>
