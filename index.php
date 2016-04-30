@@ -356,10 +356,14 @@ echo '<script type="text/javascript" src="'.$UrlAtual.'js/modernizr-sitesja.js">
         $camp_url = $_REQUEST['secao'];
         $camp_url = explode("/", $camp_url);
 
-        $ctrl = array_shift( $camp_url );
-        $ctrl = ($ctrl=="pagseguro")?"pagseguro":"campanha";
+        array_shift( $camp_url ); // remove o "/campanhas"
+        if( $camp_url[0]=="pagseguro" ) {
+            $ctrl="";
+        } else {
+            $ctrl = "campanha/";
+        }
 
-        $nova_url = $ctrl ."/". implode("/", $camp_url);
+        $nova_url = $ctrl . implode("/", $camp_url);
 
         if( count($_REQUEST)>1 ) {
             array_shift( $_REQUEST );

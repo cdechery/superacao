@@ -3,5 +3,6 @@
 $config['charset']='UTF-8';
 $config['wordwrap']=TRUE;
 $config['mailtype']='html';
+$config['email_sim_only']=TRUE;
 
 ?>

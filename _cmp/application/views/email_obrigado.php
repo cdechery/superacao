@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>Gratos | Instituto SuperAÇÃO</title>
+</head>
+<body background="#C8C8C8" style="background:#C8C8C8;">
+    
+
+<div class="content" style="background-color: #fff; width:600px; margin:0 auto;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" valign="top" width="600">
+	<tbody>
+
+		<tr>
+			<td valign="top" align="center" font="Arial" style="font-family:arial;">
+				<br />
+				<h1 style="text-align:center; color:#BCBEC0; padding:0 20px;" font-color="#BCBEC0">Agradecemos a colaboração</h1>
+				<p style="text-align:center; color:#BCBEC0; padding:0 20px;" font-color="#BCBEC0">Não deixe de acompanhar nosso site para ver as novidades, e em breve retornaremos com mais informações sobre sua colaboração.</p>
+				<br />
+			</td>
+		</tr>
+
+
+		<tr>
+			<td valign="top"><a href="http://www.institutosuperacao.org.br"><img alt="Instituto SuperAÇÃO!" height="314" src="http://www.institutosuperacao.org.br/imgs/email_instituto-superacao.jpg" style="display: block; border-width: 0px; border-style: solid;" width="600" /></a></td>
+		</tr>   
+	</tbody>
+</table>
+</div>
+
+</body>
+</html>

@@ -6,6 +6,9 @@ class Pagseguro extends MY_Controller {
 		parent::__construct();
 		$this->load->model('pagseguro_model');
 		$this->load->model('campanha_model');
+
+		$this->load->library('email');
+		$this->load->helper('email');
 	}
 
 	public function index() {
@@ -27,11 +30,21 @@ class Pagseguro extends MY_Controller {
 				$ps_data['data']->sender->email,
 				$id_trans );
 
+				$params = array(
+					'to_email'=> $ps_data['data']->sender->email,
+					'from_email'=>'noreply@institutosuperacao.org',
+					'from_name'=> 'Instituto SuperaAÇÃO',
+					'subject'=> 'Muito obrigado!',
+					'body' => ''
+				);
+
+				send_email( $params );
+
 			if( $ret ) {
-				redirect("../pagseguro-ok");
+				$this->load->view('pagseguro-ok');
 			}
 		} else {
-			redirect("../pagseguro-fail");
+				$this->load->view('pagseguro-fail');
 		}
 	}
 }

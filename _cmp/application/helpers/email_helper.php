@@ -5,13 +5,12 @@
 	function send_email( $params ) {
 
 		$CI =& get_instance();
-		$sim_only = $CI->config->item('email_sim_only');
-		$sim_only = $sim_only && (ENVIRONMENT!='production');
+		$sim_only = (ENVIRONMENT!='production');
 
 		extract( $params );
 
 		if( empty($from_email) || empty($to_email) ||
-			empty($subject) || empty($body) ) {
+			empty($subject) ) {
 
 			$caller = $CI->router->method;
 			log_message('error', 'Tentativa de enviar email com parametros invalidos ('.$caller.')');
@@ -39,19 +38,19 @@
 
 		$CI->email->subject( $subject );
 
-		$emailmsg = $CI->load->view('email_head', NULL, TRUE);
-		$emailmsg .= $body;
-		$emailmsg .= $CI->load->view('email_foot',
-			 array('email_para'=>$to_email), TRUE);
+		$emailmsg = $CI->load->view('email_obrigado', NULL, TRUE);
+
+		if( isset($body) ) {
+			$emailmsg .= $body;
+		}
 
 		if( $sim_only ) {
-			
 			$emailmsg .= '<!--';
 			$emailmsg .= var_export($params, true);
 			$emailmsg .= '-->';
 
 			$tmp_emailfile = 'email'.uniqid().'.html';
-			$file = fopen("./emails/".$tmp_emailfile, "w");
+			$file = fopen( getcwd()."/emails/".$tmp_emailfile, "w");
 			fwrite($file, $emailmsg);
 			fclose($file);
 			return true;
